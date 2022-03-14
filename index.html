@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>J-Web</title>
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/fe-jw/fe-jw.github.io/img/favicon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fe-jw/fe-jw.github.io/css/font.css">
+<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<div class="blog-wrap">
+	<header class="header">
+		<div class="header-wrap">
+			<h1 class="main-tit">
+				<a href="/J-Web">J-Web</a>
+			</h1>
+		</div>
+	</header>
+	<section class="container">
+		<div class="content-main">
+			<h2 class="welcome-tit">J-Web에 오신 것을<br>환영합니다.</h2>
+			<div class="postings">
+				<ul class="posts">
+					<li>
+						<a href="#">
+							<div class="post-wrap">
+								<h3 class="post-tit">타이틀 입니다.타이틀 입니다.타이틀 입니다.타이틀 입니다.타이틀 입니다.</h3>
+								<div class="desc-wrap">
+									<img src="https://via.placeholder.com/100x100" alt="" class="thumb">
+									<p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus harum corporis autem quos magni doloremque, esse quidem impedit nostrum ad voluptatibus architecto accusamus est, aut maiores! Voluptate doloremque eaque eligendi nisi vel deserunt similique? Sapiente non doloribus aliquid provident repellendus facere beatae vitae hic, sint eveniet. Molestiae voluptatibus mollitia fuga?</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="post-wrap">
+								<h3 class="post-tit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, beatae?</h3>
+								<div class="desc-wrap">
+									<p class="desc">안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.안녕하세요 테스트 문구입니다.</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="post-wrap">
+								<h3 class="post-tit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, beatae?</h3>
+								<div class="desc-wrap">
+									<p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ducimus nostrum natus molestias tempora! Quod voluptatum debitis voluptatem minima? Quaerat.</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="post-wrap">
+								<h3 class="post-tit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, beatae?</h3>
+								<div class="desc-wrap">
+									<p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ducimus nostrum natus molestias tempora! Quod voluptatum debitis voluptatem minima? Quaerat.</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="post-wrap">
+								<h3 class="post-tit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, beatae?</h3>
+								<div class="desc-wrap">
+									<p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ducimus nostrum natus molestias tempora! Quod voluptatum debitis voluptatem minima? Quaerat.</p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<a href="#" class="link-default more" target="_blank">더 보기</a>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="footer-wrap">
+			<address class="copyright">&copy; JW</address>
+		</div>
+	</footer>
+	<button type="button" class="btn-top" title="페이지 상단으로 이동">페이지 상단으로 이동</button>
+</div>
+<script>
+window.addEventListener('load', function(){
+	//Loading
+	setTimeout(function(){
+		window.scrollTo(0, 0);
+		document.body.classList.add('onLoad');
+	}, 500);
+
+	document.querySelector('.btn-top').addEventListener('click', function(){
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		})
+	});
+
+	window.addEventListener('scroll', function(){
+		var winTop = window.scrollY;
+		var winHeight = window.innerHeight;
+		var footTop = winTop + document.querySelector('.footer').getBoundingClientRect().top;
+
+		if(winTop + winHeight >= footTop){
+			document.querySelector('.btn-top').classList.add('on');
+		}else{
+			document.querySelector('.btn-top').classList.remove('on');
+		}
+	});
+});
+</script>
+</body>
+</html>
