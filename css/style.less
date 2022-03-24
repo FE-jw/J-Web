@@ -1,13 +1,13 @@
 @charset "utf-8";
 
-/*! Author: JW 2022-03-14 */
+/*! Author: JW 2022-03-14. Edit: JW 2022-03-24 */
 @font: 'Roboto-Regular', 'NanumSquareR', sans-serif;
 @font-light: 'Roboto-Light', 'NanumSquareL', sans-serif;
 @font-bold: 'Roboto-Bold', 'NanumSquareExtraBold', sans-serif;
 @symbol-grey: #777;
 @symbol-color: #689f63; //rgb(104, 159, 99)
-//@cdn: 'https://cdn.jsdelivr.net/gh/fe-jw/J-Web/img';
-@cdn: '../img';
+@cdn: 'https://cdn.jsdelivr.net/gh/fe-jw/J-Web/img';
+//@cdn: '../img';
 @import 'svg.less';
 
 *	{margin:0;padding:0;}
@@ -38,11 +38,11 @@ body	{
 
 //Default Mobile
 .blog-wrap	{min-width:320px;
-	&:before	{content:'';opacity:0.03;width:100vw;height:100vh;position:fixed;left:0;top:0;background:url('@{cdn}/bg_j-web.jpg') repeat 50% 50%;background-size:cover;z-index:-10;}
+	&:before	{content:'';opacity:0.03;width:100vw;height:100vh;position:fixed;left:0;top:0;background:url('@{cdn}/bg_j-web.jpg') repeat 50% 0;background-size:960px auto;z-index:-10;}
 
 	.link-default	{display:flex;justify-content:center;align-items:center;width:160px;height:45px;margin:30px auto 0;padding:0 10px;border-width:1px;border-style:solid;border-color:#fff;font-family:@font-light;font-size:1.5rem;text-align:center;background-color:rgba(255, 255, 255, 0.1);transition:all 0.5s ease;box-sizing:border-box;
-		&:hover	{border-color:@symbol-color;background-color:rgba(255, 240, 30, 0.2);}
-		&.more:after	{content:'';opacity:0;display:inline-block;width:0;height:0;background:url("@{more}") no-repeat;background-size:100% 100%;transition:all 0.3s;}
+		&:hover	{border-color:@symbol-color;background-color:rgba(104, 159, 99, 0.2);}
+		&.more:after	{content:'';opacity:0;display:inline-block;width:0;height:0;background:url("@{plus}") no-repeat;background-size:100% 100%;transition:all 0.3s;}
 		&.more:hover:after	{opacity:1;width:12px;height:12px;margin-left:5px;}
 	}
 
@@ -54,16 +54,16 @@ body	{
 	
 	.content-main	{min-height:100vh;padding-top:100px;box-sizing:border-box;
 		.welcome-tit	{margin-bottom:50px;line-height:(90 / 70);font-size:3.5rem;text-align:center;}
-		.postings .posts	{display:flex;flex-wrap:wrap;}
+		.postings .posts	{display:flex;flex-wrap:wrap;padding:0 5px;}
 		.postings .posts li	{flex:1 350px;min-width:0;margin:10px;}
 		.postings .posts a	{display:block;}
-		.postings .post-wrap	{height:152px;padding:10px;background-color:rgba(255, 255, 255, 0.1);box-sizing:border-box;transition:color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;}
+		.postings .post-wrap	{padding:10px;background-color:rgba(255, 255, 255, 0.1);box-sizing:border-box;transition:color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;}
 		.postings .posts a:focus .post-wrap,
 		.postings .posts a:hover .post-wrap	{color:#000;background-color:rgba(255, 255, 255, 1);box-shadow:0 0 25px @symbol-color;}
 		.postings .post-tit	{margin-bottom:10px;padding-bottom:10px;border-bottom:2px solid @symbol-color;line-height:1;font-size:2.0rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 		.postings .desc-wrap	{display:flex;}
 		.postings .desc-wrap .thumb	{width:90px;height:90px;margin-right:10px;border:1px solid @symbol-color;box-sizing:border-box;}
-		.postings .desc-wrap .desc	{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden;text-overflow:ellipsis;margin:3px 0;line-height:(28 / 24);font-size:1.2rem;}
+		.postings .desc-wrap .desc	{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden;text-overflow:ellipsis;height:84px;margin:3px 0;line-height:(28 / 24);font-size:1.2rem;}
 	}
 
 	.footer	{padding:50px 10px 20px;
@@ -82,6 +82,13 @@ body	{
 			&.more:hover:after	{width:16px;height:16px;margin-left:10px;}
 		}
 
+		.content-main	{padding-top:150px;
+			.welcome-tit	{line-height:(120 / 100);font-size:5.0rem;}
+			.postings .posts	{padding:0 10px;}
+			.postings .posts li	{flex:1 360px;}
+			.postings .post-tit	{font-size:2.5rem;}
+		}
+		
 		.footer	{padding:50px 10px 20px;
 			.copyright	{font-size:1.2rem;}
 		}
@@ -95,7 +102,9 @@ body	{
 	}
 
 	.blog-wrap	{
-		.link-default	{width:280px;height:80px;font-size:3.0rem;
+		&:before	{background-size:1920px auto;}
+
+		.link-default	{width:280px;height:80px;border-width:2px;font-size:3.0rem;
 			&.more:hover:after	{width:24px;height:24px;margin-left:10px;}
 		}
 
@@ -103,6 +112,18 @@ body	{
 		.header	{margin-bottom:-@header-height;box-shadow:0 2px 0 @symbol-color;
 			.header-wrap	{max-width:1440px;height:@header-height;margin:0 auto;padding:0 20px;box-sizing:border-box;}
 			.header-wrap .main-tit	{font-size:5.0rem;}
+		}
+
+		.content-main	{max-width:1440px;margin:0 auto;padding-top:300px;
+			.welcome-tit	{margin-bottom:100px;line-height:(120 / 100);font-size:10.0rem;}
+			.postings .posts	{padding:0;}
+			.postings .posts li	{flex:1 680px;}
+			.postings .post-tit	{margin-bottom:20px;padding-bottom:20px;font-size:5.0rem;}
+			.postings .post-wrap	{padding:20px;}
+			.postings .posts a:focus .post-wrap,
+			.postings .posts a:hover .post-wrap	{box-shadow:0 0 50px @symbol-color;}
+			.postings .desc-wrap .thumb	{width:150px;height:150px;margin-right:20px;}
+			.postings .desc-wrap .desc	{height:144px;margin:6px 0;line-height:(24 / 20);font-size:2.0rem;}
 		}
 
 		.footer	{padding:90px 20px 30px;
