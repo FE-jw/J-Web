@@ -34,4 +34,11 @@
 
 ```javascript
 //javascript
+window.addEventListener('load', function(){
+	//Img Lazyload
+	document.querySelectorAll('img[data-src]').forEach(function(e){
+		e.src = e.dataset.src;
+		delete e.dataset.src;
+	});
+});
 ```
