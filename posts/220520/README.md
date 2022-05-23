@@ -1,6 +1,6 @@
 # **image lazyload**
 
-![](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/post/220520/thumb.jpg)
+![](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220520/thumb.jpg)
 
 ## **image lazyload란?**
 페이지를 로딩하는 시점에서 불필요한 **이미지 리소스의 요청을 미루는 기술**이다. 
@@ -25,7 +25,7 @@
 |eager|리소스 즉시 로딩|
 |lazy|일정 거리에 도달할 때까지 로딩 지연|
 
-![caniuse.com](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/post/220520/img_1.jpg)
+![caniuse.com](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220520/img_1.jpg)
 [caniuse에서 확인하기](https://caniuse.com/?search=loading)<br>
 하지만 최신 버전만 지원하기 때문에 현업에서 도입하기엔 아직은 무리가 있어 보인다.<br>
 그래서 결국 javascript를 사용하게 된다.
@@ -55,7 +55,7 @@ function imgLazyload(){
 4. 코드 정리를 위해 dataset을 제거한다.
 
 ## **테스트 페이지**
-[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/post/220520/lazyload.html)<br>
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/220520/lazyload.html)<br>
 최상단 이미지를 제외한 9장의 이미지에 모두 적용했을 때 로딩 시간을 비교해보았다.<br>
 대략 1/5로 로딩 속도가 줄어들었다.<br>
 _(테스트 환경에 따라 결과값은 다를 수 있습니다.)_
