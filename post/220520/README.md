@@ -55,7 +55,7 @@ function imgLazyload(){
 4. 코드 정리를 위해 dataset을 제거한다.
 
 ## **테스트 페이지**
-https://fe-jw.github.io/J-Web/post/220520/lazyload.html<br>
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/post/220520/lazyload.html)<br>
 최상단 이미지를 제외한 9장의 이미지에 모두 적용했을 때 로딩 시간을 비교해보았다.<br>
 대략 1/5로 로딩 속도가 줄어들었다.<br>
 _(테스트 환경에 따라 결과값은 다를 수 있습니다.)_
