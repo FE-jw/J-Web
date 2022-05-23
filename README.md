@@ -1,7 +1,7 @@
 # **J-Web**
 
 ## **Posting**
-* [image lazyload란?](posts/220520)
+* [image lazyload란?](posts/220520/README.md)
 * STA(Scroll Trigger Animation) 플러그인
 
 ## **Contact Me**
