@@ -2,9 +2,9 @@
 
 ## **Posting**
 * [image lazyload란?](posts/220520/README.md)
-* STA(Scroll Trigger Animation) 플러그인
+* STA(Scroll Trigger Animation) 플러그인(작성중)
 
 ## **Contact Me**
-* Email: zaixu91@gmailc.om
+* Email: zaixu91@gmail.com
 * Web: https://fe-jw.github.io
 * Github: https://github.com/FE-jw
