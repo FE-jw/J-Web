@@ -42,16 +42,19 @@ CSS는 transition 속성을 이용해 애니메이션 효과를 담당한다.<br
 		```html
 		<div data-sta></div>
 		```
+
 * **data-sta-delay**
 	* 트리거 활성화를 지연시킨다. 단위는 ms이다.
 		```html
 		<div data-sta data-sta-delay="300"></div>
 		```
+
 * **data-sta-duration**
 	* 애니메이션 시간을 설정한다. 기본값은 1000이며, 단위는 ms이다.
 		```html
 		<div data-sta data-sta-duration="2000"></div>
 		```
+
 * **data-sta-offset**
 	* 트리거가 활성화 되는 지점을 설정한다.<br>
 	예를 들어, 1은 100%를 의미하며 요소 높이의 100%가 뷰포트에 노출됐을 때 활성화된다.
