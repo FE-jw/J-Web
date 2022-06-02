@@ -1,11 +1,11 @@
 # **J-Web**
 
 ## **Posting**
-* [background-image lazyload](posts/bglazy/README.md)
-* [image lazyload](posts/220520/README.md)
+* [background-image lazyload](posts/220602)
+* [image lazyload](posts/220520)
 
 ## **Plugin**
-* [STA(Scroll Trigger Animation)](posts/220527/README.md)
+* [STA(Scroll Trigger Animation)](posts/220527)
 
 ## **Contact Me**
 * Email: [zaixu91@gmail.com](zaixu91@gmail.com)
