@@ -21,8 +21,8 @@
 
 ```css
 /* CSS */
-.your-class	{backgorund-image:url('bg.jpg');}
-.your-class.bg-lazy	{backgorund-image:none;}
+.your-class	{background-image:url('bg.jpg');}
+.your-class.bg-lazy	{background-image:none;}
 ```
 
 ```javascript
