@@ -26,7 +26,7 @@
 ```
 
 ```javascript
-//js
+//JS
 window.addEventListener('load', function(){
 	//Background Image Lazyload
 	var bg_lazys = document.querySelectorAll('.bg-lazy');
