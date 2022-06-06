@@ -67,17 +67,19 @@ CSS는 transition 속성을 이용해 애니메이션 효과를 담당한다.<br
 		<div data-sta data-sta-offset="1.5"></div>
 		```
 
-	* 음수도 설정이 가능하지만 트리거가 빨리 활성화되는 것이기 때문에 애니메이션이 화면에 보이지 않을 수 있다.
-		```html
-		<div data-sta data-sta-offset="-0.2"></div>
-		```
-
 * **data-sta-direction**
 	* 애니메이션의 방향을 설정한다.<br>
 	설정값은 **ttb**(top to bottom), **ltr**(left to right), **rtl**(right to left), **btt**(bottom to top) 4가지이며, 기본값은 **btt**이다.
 		```html
 		<div data-sta data-sta-direction="ltr"></div>
 		```
+
+## **Options**
+```javascript
+document.querySelectorAll('[data-sta]').STA({
+	repeatEffect: true //스크롤을 다시 내렸을 때 애니메이션을 반복할지 결정(기본값은 false)
+});
+```
 
 ## **적용 방법**
 1. Markup
@@ -88,13 +90,13 @@ CSS는 transition 속성을 이용해 애니메이션 효과를 담당한다.<br
 2. CSS
 	```html
 	<!-- 아래 CDN을 상용 서비스에 적용하지 마세요. 수정 시 서비스에 영향을 줄 수도 있습니다. -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fe-jw/STA/Ver1.3/sta.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fe-jw/STA/Ver1.4/sta.min.css">
 	```
 
 3. JS
 	```html
 	<!-- 아래 CDN을 상용 서비스에 적용하지 마세요. 수정 시 서비스에 영향을 줄 수도 있습니다. -->
-	<script src="https://cdn.jsdelivr.net/gh/fe-jw/STA/Ver1.3/sta.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fe-jw/STA/Ver1.4/sta.min.js"></script>
 	```
 
 4. Initialize
@@ -105,6 +107,6 @@ CSS는 transition 속성을 이용해 애니메이션 효과를 담당한다.<br
 	});
 	```
 
-위 내용은 Version 1.3을 기준으로 작성되었습니다.
+위 내용은 **Version 1.4**을 기준으로 작성되었습니다.
 * [Github 바로가기](https://github.com/FE-jw/STA#readme)
 * [Demo 페이지 바로가기](https://fe-jw.github.io/STA)
