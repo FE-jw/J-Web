@@ -8,6 +8,6 @@
 * [STA(Scroll Trigger Animation)](posts/220527)
 
 ## **Contact Me**
-* Email: [zaixu91@gmail.com](zaixu91@gmail.com)
+* Email: [zaixu91@gmail.com](mailto:zaixu91@gmail.com)
 * Web: [https://fe-jw.github.io](https://fe-jw.github.io)
 * Github: [https://github.com/FE-jw](https://github.com/FE-jw)
