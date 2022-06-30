@@ -5,8 +5,6 @@
 Visual Studio Code에서  **SCSS compiler**를 적용하기 위해 테스트를 진행했다.  
 extension은 Live Sass Compiler와 Easy Sass를 비교했고, 최종적으로 **Live Sass Compiler**를 선택했다.
 
----
-
 ## [**Live Sass Compiler**](https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass)
 * css format
 	* expanded
@@ -28,7 +26,7 @@ extension은 Live Sass Compiler와 Easy Sass를 비교했고, 최종적으로 **
 			.selector:after	{content:"你好";}
 			```
 * 설정(settings.json)
-	```json
+	```javascript
 	"liveSassCompile.settings.generateMap": false,	//css map파일 생성
 	"liveSassCompile.settings.autoprefix": false,	//벤더프리픽스
 	"liveSassCompile.settings.compileOnWatch": false,	//Watch Sass 실행 시 모든 .scss 컴파일
@@ -52,7 +50,7 @@ extension은 Live Sass Compiler와 Easy Sass를 비교했고, 최종적으로 **
 
 ##  **자주 쓸만한 SCSS 기능 정리**
 
-```SCSS
+```scss
 //rgba
 .test_1	{color:rgba(0, 0, 0, 0.5);}
 .test_2	{color:rgba(#000, 0.5);}	//매개변수 2개(#16 진수 색상 코드, opacity)로 가능
@@ -83,29 +81,29 @@ $i: 10;
 
 ## **mixin과 function**
 * mixin: 스타일 묶음을 반환
-	```scss
-	@mixin my-mixin($w, $h){
-		width: $w;
-		height: $h;
-	}
+```scss
+@mixin my-mixin($w, $h){
+	width: $w;
+	height: $h;
+}
 
-	.test_mixin	{@include my-mixin(100px, 200px);}
+.test_mixin	{@include my-mixin(100px, 200px);}
 
-	//컴파일 후
-	.test_mixin	{
-		width:100px;
-		height:100px;
-	}
-	```
+//컴파일 후
+.test_mixin	{
+	width:100px;
+	height:100px;
+}
+```
 
 * function: 하나의 값을 반환
-	```scss
-	@function my-func($num1, $num2){
-		@return percentage($num1 / $num2);
-	}
+```scss
+@function my-func($num1, $num2){
+	@return percentage($num1 / $num2);
+}
 
-	.test_func	{width:my-func(100, 200);}
+.test_func	{width:my-func(100, 200);}
 
-	//컴파일 후
-	.test_func	{width:50%;}
-	```
+//컴파일 후
+.test_func	{width:50%;}
+```
