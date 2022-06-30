@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/*! 주석 테스트 */
+//rgba
+.test_1	{color:rgba(0, 0, 0, 0.5);}
+.test_2	{color:rgba(#000, 0.5);}	//매개변수 2개(#16 진수 색상 코드, opacity)로 가능
+
+//연산
+.test_3	{line-height:calc(26 / 20);}	//line-height:1.3;
+.test_4	{width:percentage(480 / 960);}	//width:50%;
+
+//변수 사용
+$width: 960;
+$main_color: #d33;
+.test_5	{
+	width:percentage(300 / $width);	//width:31.25%;
+	background-color:$main_color;	//background-color:#d33;
+}
+
+//string 삽입하는 경우 #{$변수명}
+$path: 'test';
+.test_6	{background-image:url("#{$path}/img.png");}	//background-image:url("test/img.png");
+
+//조건문
+$i: 10;
+@if($i == 10){
+	//참인 경우 실행
+	.test_7	{width:100px;}
+}
+
+//mixin
+@mixin my-mixin($w, $h){
+	width: $w;
+	height: $h;
+}
+
+.test_mixin	{@include my-mixin(100px, 200px);}
+
+//function
+@function my-func($num1, $num2){
+	@return percentage($num1 / $num2);
+}
+
+.test_func	{width:my-func(100, 200);}

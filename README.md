@@ -1,6 +1,7 @@
 # **J-Web**
 
 ## **Posting**
+* [Visual Studio Code에서 SCSS 셋팅하기](posts/220630)
 * [background-image lazyload](posts/220602)
 * [image lazyload](posts/220520)
 
