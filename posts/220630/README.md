@@ -81,29 +81,29 @@ $i: 10;
 
 ## **mixin과 function**
 * mixin: 스타일 묶음을 반환
-```scss
-@mixin my-mixin($w, $h){
-	width: $w;
-	height: $h;
-}
+	```scss
+	@mixin my-mixin($w, $h){
+		width: $w;
+		height: $h;
+	}
 
-.test_mixin	{@include my-mixin(100px, 200px);}
+	.test_mixin	{@include my-mixin(100px, 200px);}
 
-//컴파일 후
-.test_mixin	{
-	width:100px;
-	height:100px;
-}
-```
+	//컴파일 후
+	.test_mixin	{
+		width:100px;
+		height:100px;
+	}
+	```
 
 * function: 하나의 값을 반환
-```scss
-@function my-func($num1, $num2){
-	@return percentage($num1 / $num2);
-}
+	```scss
+	@function my-func($num1, $num2){
+		@return percentage($num1 / $num2);
+	}
 
-.test_func	{width:my-func(100, 200);}
+	.test_func	{width:my-func(100, 200);}
 
-//컴파일 후
-.test_func	{width:50%;}
-```
+	//컴파일 후
+	.test_func	{width:50%;}
+	```
