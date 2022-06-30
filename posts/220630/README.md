@@ -8,7 +8,7 @@ extension은 Live Sass Compiler와 Easy Sass를 비교했고, 최종적으로 **
 ## [**Live Sass Compiler**](https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass)
 * css format
 	* expanded
-		* 계층 구조로 정리됨
+		* 계층 구조로 정리
 			```css
 			.selector	{
 				width:100px;
@@ -16,7 +16,7 @@ extension은 Live Sass Compiler와 Easy Sass를 비교했고, 최종적으로 **
 			}
 			```
 	* compressed
-		* min 버전처럼 공백을 모두 제거함
+		* min 버전처럼 공백을 모두 제거
 		* @charset이 제거되지만 인코딩 문제 없도록 자동으로 변경([dart-sass 참고](https://github.com/sass/dart-sass/issues/1387), [개발자 답변](https://github.com/glenn2223/vscode-live-sass-compiler/issues/179))
 			```css
 			/* 컴파일 전 */
