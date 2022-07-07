@@ -38,6 +38,6 @@ body	{font-family:'Roboto', 'NanumSquare', 'Noto Sans', sans-serif;}
 * 특수문자: U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E
 
 ## **참고할 만한 사이트**
-* https://en.wikipedia.org/wiki/List_of_Unicode_characters
-* https://docs.automationanywhere.com/ko-KR/bundle/enterprise-v2019/page/enterprise-cloud/topics/aae-client/bot-creator/using-variables/unicode-range.html
-* https://www.unicode.org/charts/
+* [https://en.wikipedia.org/wiki/List_of_Unicode_characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters)
+* [https://docs.automationanywhere.com/ko-KR/bundle/enterprise-v2019/page/enterprise-cloud/topics/aae-client/bot-creator/using-variables/unicode-range.html](https://docs.automationanywhere.com/ko-KR/bundle/enterprise-v2019/page/enterprise-cloud/topics/aae-client/bot-creator/using-variables/unicode-range.html)
+* [https://www.unicode.org/charts/](https://www.unicode.org/charts/)
