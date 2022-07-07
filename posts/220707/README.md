@@ -2,9 +2,9 @@
 
 ![](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220707/thumb.jpg)
 
-> **_"영문은 Roboto로 적용 해주시고, 한글은 나눔 스퀘어로 적용해 주시고, 숫자는 Noto Sans로 적용해 주세요."_**  
+> **_"영문은 Roboto로, 한글은 나눔 스퀘어로, 숫자는 Noto Sans로 적용해 주세요."_**  
 
-만약 이런 요청이 있다면 태그로 각각 감싸주지 않아도 [unicode-range](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range)를 이용하면 쉽게 적용이 가능하다.  
+만약 이런 요청이 있다면 태그를 각각 감싸주지 않아도, class를 만들지 않아도 [unicode-range](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range)를 이용하면 쉽게 적용이 가능하다.  
 unicode-range는 @font-face로 정의된 폰트를 특정 범위의 글자에만 설정하는 방법이다.  
 페이지 내에 해당 범위의 글자가 없으면 폰트를 다운로드하지 않는다. HTML 문서에 적어도 한 글자 이상이 있어야만 다운로드한다.
 
