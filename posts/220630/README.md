@@ -30,6 +30,7 @@ extension은 Live Sass Compiler와 Easy Sass를 비교했고, 최종적으로 **
 	"liveSassCompile.settings.generateMap": false,	//css map파일 생성
 	"liveSassCompile.settings.autoprefix": false,	//벤더프리픽스
 	"liveSassCompile.settings.compileOnWatch": false,	//Watch Sass 실행 시 모든 .scss 컴파일
+	"liveSassCompile.settings.watchOnLaunch": true,	//watch sass 자동 실행
 	"liveSassCompile.settings.formats": [	//포맷 설정(복수 설정 가능)
 		{
 			"format": "expanded",
