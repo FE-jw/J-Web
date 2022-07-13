@@ -1,6 +1,7 @@
 # **J-Web**
 
 ## **Posting**
+* [Git 명령어 정리](posts/git)
 * [언어 별로 폰트를 적용하는 방법 unicode-range](posts/220707)
 * [Visual Studio Code에서 SCSS 셋팅하기](posts/220630)
 * [background-image lazyload](posts/220602)
