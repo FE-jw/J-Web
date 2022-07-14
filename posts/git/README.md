@@ -18,7 +18,7 @@ git add -A
 커밋은 변경 사항에 대해 버전이 생긴다는 것이다.  
 하지만 아직 원격 저장소에 업로드를 한 것은 아니다.  
 커밋 메시지를 작성해야 하며 -m 뒤에 따옴표로 감싸 작성한다.
-```console
+```
 git commit -m "commit test"
 ```
 
@@ -27,7 +27,7 @@ git commit -m "commit test"
 
 ## **git clone**
 원격 저장소를 로컬에 복제한다.
-```console
+```
 git clone repository-url
 ```
 
@@ -38,11 +38,11 @@ git clone repository-url
 ## **git branch**
 * git branch: 로컬 브랜치 목록 조회
 * git branch [name]: 로컬 브랜치생성
-	```console
+	```
 	git branch branch-1
 	```
 * git branch -d [name]: 로컬 브랜치 제거
-	```console
+	```
 	git branch -d branch-1
 	```
 * git branch -r: 원격 브랜치 목록 조회
@@ -50,7 +50,7 @@ git clone repository-url
 
 ## **git switch branch-name**
 'branch-name'의 브랜치로 전환한다.
-```console
+```
 git switch branch-name
 ```
 
@@ -58,19 +58,19 @@ git switch branch-name
 'branch-name'의 브랜치를 통합한다.  
 기준이 되는 브랜치에서 실행하며 보통 **main(master)** 브랜치에서 실행한다.  
 충돌 사항이 발생한 경우 해결 뒤에 커밋이 가능하다.
-```console
+```
 git merge branch-name
 ```
 
 ## **git push origin branch-name**
 'branch-name'의 원격 브랜치를 생성한다.  
 먼저 로컬 브랜치를 생성하고 전환한 뒤에 실행해야 한다.
-```console
+```
 git push origin branch-name
 ```
 
 ## **git push origin -d branch-name**
 'branch-name'의 원격 브랜치를 제거한다.
-```console
+```
 git push origin -d branch-name
 ```
