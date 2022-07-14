@@ -3,7 +3,7 @@
 ![](thumb.jpg)
 
 ## **git add**
-로컬 저장소에서 발생한 변경 이력을 스테이징 영역(staging area)에 추가한다.  
+로컬 저장소에서 발생한 변경 사항을 스테이징 영역(staging area)에 추가한다.  
 스테이징 영역은 로컬 저장소와 원격 저장소 사이에 있는 개념이다.  
 커밋할 준비가 된 파일들이 대기하는 곳이라고 볼 수 있다.
 ```console
@@ -23,7 +23,7 @@ git commit -m "commit test"
 ```
 
 ## **git push**
-커밋된 버전을 원격 저장소에 업로드한다.
+커밋한 변경 사항을 원격 저장소에 업로드한다.
 
 ## **git clone**
 원격 저장소를 로컬에 복제한다.
@@ -32,32 +32,45 @@ git clone repository-url
 ```
 
 ## **git pull**
-다운로드라고 이해하면 쉽다. 원격 저장소의 최신 변경 이력을 로컬 저장소에 적용한다.
+다운로드라고 이해하면 쉽다.  
+원격 저장소의 최신 버전을 로컬 저장소에 적용한다.
 
 ## **git branch**
-브랜치 목록을 조회한다.
+* git branch: 로컬 브랜치 목록 조회
+* git branch [name]: 로컬 브랜치생성
+	```console
+	git branch branch-1
+	```
+* git branch -d [name]: 로컬 브랜치 제거
+	```console
+	git branch -d branch-1
+	```
+* git branch -r: 원격 브랜치 목록 조회
+* git branch -a: 로컬, 원격 브랜치 목록 조회
 
-## **git switch**
-브랜치를 변경한다.
+## **git switch branch-name**
+'branch-name'의 브랜치로 전환한다.
 ```console
-git switch my-branch
+git switch branch-name
 ```
 
-## **git merge**
-브랜치를 통합한다.  
-main(master) 브랜치에서 실행해야 하며, 충돌 사항이 발생한 경우 해결 뒤에 커밋이 가능하다.
+## **git merge branch-name**
+'branch-name'의 브랜치를 통합한다.  
+기준이 되는 브랜치에서 실행하며 보통 **main(master)** 브랜치에서 실행한다.  
+충돌 사항이 발생한 경우 해결 뒤에 커밋이 가능하다.
 ```console
-git merge my-branch
+git merge branch-name
 ```
 
-## **git push origin**
-'my-branch'라는 원격 브랜치를 생성한다.
+## **git push origin branch-name**
+'branch-name'의 원격 브랜치를 생성한다.  
+먼저 로컬 브랜치를 생성하고 전환한 뒤에 실행해야 한다.
 ```console
-git push origin my-branch
+git push origin branch-name
 ```
 
-## **git push origin -d**
-'my-branch'라는 원격 브랜치를 제거한다.
+## **git push origin -d branch-name**
+'branch-name'의 원격 브랜치를 제거한다.
 ```console
-git push origin -d my-branch
+git push origin -d branch-name
 ```
