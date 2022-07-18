@@ -68,7 +68,7 @@ $main_color: #d33;
 	background-color:$main_color;	//background-color:#d33;
 }
 
-//string 삽입하는 경우 #{$변수명}
+//변수 삽입하는 경우 #{$변수명}
 $path: 'test';
 .test_6	{background-image:url("#{$path}/img.png");}	//background-image:url("test/img.png");
 
