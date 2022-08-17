@@ -1,6 +1,6 @@
-# **Git 명령어 정리(작성중)**
+# **Git 명령어 정리**
 
-![](thumb.jpg)
+![Git 명령어 정리](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220817/thumb.jpg)
 
 ## **git add**
 로컬 저장소에서 발생한 변경 사항을 스테이징 영역(staging area)에 추가한다.  
