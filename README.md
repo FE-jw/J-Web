@@ -10,6 +10,9 @@
 ## **Plugin**
 * [STA(Scroll Trigger Animation)](posts/220527)
 
+## **etc**
+* [React 정리중입니다.](https://fe-jw.github.io/react)
+
 ## **Contact Me**
 * Email: [zaixu91@gmail.com](mailto:zaixu91@gmail.com)
 * Web: [https://fe-jw.github.io](https://fe-jw.github.io)
