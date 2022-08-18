@@ -37,7 +37,7 @@ git clone repository-url
 
 ## **git branch**
 * git branch: 로컬 브랜치 목록 조회
-* git branch [name]: 로컬 브랜치생성
+* git branch [name]: 로컬 브랜치 생성
 	```
 	git branch branch-1
 	```
