@@ -59,3 +59,5 @@ function func(a, b){
     return b / a;
 }
 ```
+
+이 외에도 공식 문서에서 여러가지를 더 소개하고 있다.
