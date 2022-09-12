@@ -32,7 +32,7 @@ function sayHello(somebody){
 }
 ```
 매개변수 somebody의 타입은 string이며, 'Somebody's name.'의 추가 설명을 제공하는 예제이다.  
-VSCode와 같은 코드 편집기에서 해당 함수 호출 시 힌트를 확인할 수 있다.
+VSCode와 같은 코드 편집기에서 해당 함수 호출 시 힌트를 확인할 수 있다.  
 ![](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220912/img_1.jpg)
 
 ### @todo
