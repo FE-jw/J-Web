@@ -1,6 +1,7 @@
 # **J-Web**
 
 ## **Posting**
+* [JSDoc](posts/220912)
 * [Git 명령어 정리](posts/220817)
 * [언어 별로 폰트를 적용하는 방법 unicode-range](posts/220707)
 * [Visual Studio Code에서 SCSS 셋팅하기](posts/220630)
@@ -11,7 +12,7 @@
 * [STA(Scroll Trigger Animation)](posts/220527)
 
 ## **Etc**
-* [React 정리중입니다.](https://github.com/FE-jw/react#readme)
+* [React](https://github.com/FE-jw/react#readme)
 
 ## **Contact Me**
 * Email: [zaixu91@gmail.com](mailto:zaixu91@gmail.com)
