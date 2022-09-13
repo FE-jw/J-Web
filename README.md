@@ -1,7 +1,6 @@
 # **J-Web**
 
 ## **Posting**
-* [임시 샘플 이미지(placeholder image) 추가하기](posts/imgplaceholder)
 * [JSDoc](posts/220912)
 * [Git 명령어 정리](posts/220817)
 * [언어 별로 폰트를 적용하는 방법 unicode-range](posts/220707)
