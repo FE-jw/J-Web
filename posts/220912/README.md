@@ -49,7 +49,7 @@ function foo(){
 ```
 
 ### @version
-문서의 버전을 나타낸다.
+버전을 나타낸다.
 ```js
 /**
  * @version 1.2.3
