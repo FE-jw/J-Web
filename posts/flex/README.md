@@ -40,7 +40,7 @@ flex item의 흐름은 축에 따라 결정된다.
 축의 방향은 flex container에 flex-direction 속성으로 설정한다.  
 주요 속성 값은 4가지가 있다.  
 
-|     |     |
+|속성|설명|
 |---|---|
 |row|기본값으로, 왼쪽으로 오른쪽 방향으로 정렬된다.|
 |row-reverse|기본값과 동일하게 가로 정렬이지만 오른쪽에서 왼쪽으로 정렬된다.|
@@ -150,7 +150,7 @@ ul	{
 #### **justify-content(수평 정렬)**
 justify-content은 flex item이 기본축에서 어디에 위치할 것인지를 제어하며 flex container 요소에 추가하는 속성이다.  
 
-|     |     |
+|속성|설명|
 |---|---|
 |flex-start|기본값으로, 모든 항목이 기본축의 시작 위치에 놓인다.|
 |center|모든 항목이 기본축의 중앙 위치에 놓인다.|
@@ -172,7 +172,7 @@ justify-content은 flex item이 기본축에서 어디에 위치할 것인지를
 #### **align-items(수직 정렬)**
 align-items는 flex item이 교차축에서 어디에 위치할 것인지를 제어하며 flex container 요소에 추가하는 속성이다.  
 
-|     |     |
+|속성|설명|
 |---|---|
 |stretch|기본값으로, flex item이 부모 요소의 높이를 모두 채우게 된다.|
 |flex-start|모든 항목이 교차축의 시작 위치에 놓인다.|
