@@ -1,12 +1,13 @@
 # **J-Web**
 
 ## **Posting**
-<!-- * [CSS Flexbox 정리](posts/flex) -->
+<!-- * [VSCode에서 snippets 활용하기](posts/snippets) -->
+* [CSS flexbox](posts/flex)
 * [임시 샘플 이미지(placeholder image) 추가하기](posts/220916)
 * [JSDoc](posts/220912)
 * [Git 명령어 정리](posts/220817)
 * [언어 별로 폰트를 적용하는 방법 unicode-range](posts/220707)
-* [Visual Studio Code에서 SCSS 셋팅하기](posts/220630)
+* [VSCode에서 SCSS 셋팅하기](posts/220630)
 * [background-image lazyload](posts/220602)
 * [image lazyload](posts/220520)
 
