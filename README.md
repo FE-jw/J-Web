@@ -2,7 +2,7 @@
 
 ## **Posting**
 <!-- * [VSCode에서 snippets 활용하기](posts/snippets) -->
-* [CSS flexbox](posts/flex)
+* [CSS flexbox](posts/220923)
 * [임시 샘플 이미지(placeholder image) 추가하기](posts/220916)
 * [JSDoc](posts/220912)
 * [Git 명령어 정리](posts/220817)
