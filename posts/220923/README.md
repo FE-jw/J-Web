@@ -4,7 +4,7 @@
 
 ## **flexbox란?**
 flexbox는 행과 열 형태로 자식 요소를 배치하기 위한 레이아웃 속성이다.  
-[테스트 페이지 바로가기](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220923/flex.html)
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/220923/flex.html)
 
 ---
 
@@ -192,4 +192,4 @@ align-items는 flex item이 교차축에서 어디에 위치할 것인지를 제
 ![](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220923/img_18.png)
 
 위 속성들을 활용하여 여러 형태의 레이아웃 구현이 가능하다.  
-[테스트 페이지 바로가기](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220923/flex.html)
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/220923/flex.html)
