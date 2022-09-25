@@ -1,6 +1,6 @@
 # **drag and drop으로 파일 올리기**
 
-[테스트 페이지 바로가기](drag_and_drop.html)
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/220925/drag_and_drop.html)
 
 ## **HTML**
 ```html
