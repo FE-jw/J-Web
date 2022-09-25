@@ -11,6 +11,9 @@
 * [background-image lazyload](posts/220602)
 * [image lazyload](posts/220520)
 
+## **Example**
+* [drag and drop으로 파일 올리기](posts/220925)
+
 ## **Plugin**
 * [STA(Scroll Trigger Animation)](posts/220527)
 
