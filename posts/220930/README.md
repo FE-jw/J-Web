@@ -22,14 +22,14 @@ Enter를 쳐보면 아래 사진처럼 자동으로 코드가 완성된다.
 본인이 자주 쓰는 html, css, js  등 템플릿을 등록해놓고 단축어 하나만 입력하면 자동 완성되는 것이다.
 
 ## **스니펫 만드는 방법**
-1) F1(명령 팔레트 활성화) -> 'snippets' 입력
-![](https://fe-jw.github.io/J-Web/posts/220930/img_3.png)
+1) F1(명령 팔레트 활성화) -> 'snippets' 입력  
+![](https://fe-jw.github.io/J-Web/posts/220930/img_3.png)  
 
-2) 파일 확장자 선택
-![](https://fe-jw.github.io/J-Web/posts/220930/img_4.png)
+2) 파일 확장자 선택  
+![](https://fe-jw.github.io/J-Web/posts/220930/img_4.png)  
 
-3) line 7~13 복사 후 수정
-![](https://fe-jw.github.io/J-Web/posts/220930/img_5.png)
+3) line 7~13 복사 후 수정  
+![](https://fe-jw.github.io/J-Web/posts/220930/img_5.png)  
 
 중요한 것은 2번 **prefix**와 3번 **body**이다.  
 **prefix**는 코드 조각의 이름(단축어)이다.  
@@ -44,10 +44,10 @@ Enter를 쳐보면 아래 사진처럼 자동으로 코드가 완성된다.
 **$0**은 마지막 커서의 위치이며 생략할 수도 있다.
 
 html 파일로 이동하여 `btn`을 입력하면 아래와 같이 직접 만든 접두어와 설명이 보인다.  
-![](https://fe-jw.github.io/J-Web/posts/220930/img_7.png)
+![](https://fe-jw.github.io/J-Web/posts/220930/img_7.png)  
 
 해당 스니펫을 선택하면 코드가 자동 완성된다.  
-![](https://fe-jw.github.io/J-Web/posts/220930/img_8.png)
+![](https://fe-jw.github.io/J-Web/posts/220930/img_8.png)  
 
 스니펫 기능을 활용하여 얼마든지 템플릿을 확장시킬 수 있다.  
 `\t`을 입력하여 코드 상 tab을 추가할 수도 있다.
