@@ -6,6 +6,7 @@
 <title>drag and drop</title>
 <style>
 	*	{margin:0;padding:0;}
+	nav	{width:500px;margin:20px auto 0;}
 	.file-zone	{display:flex;justify-content:center;align-items:center;width:500px;height:200px;margin:0 auto;position:relative;border:1px solid #ccc;}
 	.file-zone .btn-upload	{padding:10px 20px;font-size:16px;}
 	.file-zone input[type='file']	{opacity:0;width:100%;height:100%;position:absolute;left:0;top:0;cursor:pointer;}
@@ -32,6 +33,7 @@
 		<dd>용량: <span id="info-2"></span></dd>
 		<dd>타입: <span id="info-3"></span></dd>
 	</dl>
+	<nav><a href="https://github.com/FE-jw/J-Web/tree/main/posts/220925#readme" target="_blank">Github 바로가기</a></nav>
 <script>
 	//파일 업로드 영역 안에 drag 들어옴
 	document.querySelector('input[type=file]').addEventListener('dragenter', function(){
