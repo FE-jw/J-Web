@@ -2,6 +2,19 @@
 
 ![Git 명령어 정리](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/220817/thumb.jpg)
 
+## **git init**
+로컬에 Git 저장소를 생성한다.  
+생성할 경로의 폴더로 이동한 뒤 아래와 같이 입력한다.
+```
+git init
+```
+
+## **git remote**
+원격저장소를 추가한다.
+```
+git remote add origin [저장소 이름]
+```
+
 ## **git add**
 로컬 저장소에서 발생한 변경 사항을 스테이징 영역(staging area)에 추가한다.  
 스테이징 영역은 로컬 저장소와 원격 저장소 사이에 있는 개념이다.  
