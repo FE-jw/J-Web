@@ -1,7 +1,7 @@
 # **J-Web**
 
 ## **Posting**
-<!-- * [VSCode에서 snippets 활용하기](posts/snippets) -->
+* [VSCode에서 snippets 활용하기](posts/snippets)
 * [CSS flexbox](posts/220923)
 * [임시 샘플 이미지(placeholder image) 추가하기](posts/220916)
 * [JSDoc](posts/220912)
