@@ -9,16 +9,20 @@
 	*	{margin:0;padding:0;}
 	.card-wrap	{min-width:320px;max-width:1000px;margin:0 auto;}
 	.main-tit	{padding:20px;font-size:20px;text-align:center;}
-	.card	{display:flex;justify-content:space-around;flex-wrap:wrap;}
+	.btn-start	{width:200px;height:50px;position:fixed;left:50%;top:50%;font-size:20px;font-weight:bold;color:#000;transform:translate(-50%, -50%);}
+	.comment	{visibility:hidden;display:flex;justify-content:center;align-items:center;width:100%;height:100%;position:fixed;left:0;top:0;font-size:100px;font-weight:bold;color:#000;background-color:rgba(0, 0, 0, 0.2);z-index:10;}
+	.comment.on	{visibility:visible;}
+	.card	{visibility:hidden;display:flex;justify-content:space-around;flex-wrap:wrap;}
+	.card.on	{visibility:visible;}
 	.card.checking	{position:relative;}
 	.card.checking:after	{content:'';width:100%;height:100%;position:absolute;left:0;top:0;}
 	.card li	{list-style:none;width:50%;height:220px;padding:5px;box-sizing:border-box;perspective:1000px;}
-	.card .flip	{width:100%;height:100%;position:relative;border:1px solid #ccc;border-radius:4px;cursor:pointer;transition:transform 0.5s;transform-style:preserve-3d;}
+	.card .flip	{width:100%;height:100%;position:relative;color:#fff;background-color:#333;transition:transform 0.5s;transform-style:preserve-3d;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
 	.card .open .flip	{transform:rotateY(180deg);}
 	.card .front,
-	.card .back	{width:100%;height:100%;position:absolute;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
-	.card .front	{display:flex;justify-content:center;align-items:center;font-size:60px;font-weight:bold;}
-	.card .back	{font:0/0 a;background-repeat:no-repeat;background-position:50% 50%;background-size:40% auto;transform:rotateY(180deg);}
+	.card .back	{width:100%;height:100%;position:absolute;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;}
+	.card .front	{display:flex;justify-content:center;align-items:center;font-size:60px;font-weight:bold;cursor:pointer;}
+	.card .back	{border:1px solid #ccc;font:0/0 a;background-repeat:no-repeat;background-position:50% 50%;background-size:40% auto;transform:rotateY(180deg);}
 	.card [data-value='1'] .back	{background-image:url('1.svg');}
 	.card [data-value='2'] .back	{background-image:url('2.svg');}
 	.card [data-value='3'] .back	{background-image:url('3.svg');}
@@ -41,62 +45,64 @@
 <body>
 <div class="card-wrap">
 	<h1 class="main-tit">동일한 카드 맞추기</h1>
+	<button type="button" class="btn-start">시작하기!</button>
+	<div class="comment">3</div>
 	<ul class="card">
-		<li data-value="1">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="2">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="3">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="4">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="5">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="1">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="2">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="3">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="4">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
 			</div>
 		</li>
-		<li data-value="5">
+		<li class="open">
 			<div class="flip">
 				<div class="front">?</div>
 				<div class="back">back</div>
@@ -107,16 +113,51 @@
 <script>
 /**
  * TODO
- * data-value 랜덤 셋팅
- * 처음에 3초 보여주기
- * 완료했을 때 완료 안내
  * 카운트다운
  * 뒤집을 때 효과음
  */
 
 var openCard = [];
+var valArr = [];
+while (true) {
+	var val = Math.floor(Math.random() * 10) + 1;
+
+	if(!valArr.includes(val)){
+		valArr.push(val);
+
+		if(valArr.length === 10){
+			break;
+		}
+	}
+}
+
+document.querySelector('.btn-start').addEventListener('click', function(){
+	this.style.display = 'none';
+
+	document.querySelector('.comment').classList.add('on');
+	document.querySelector('.card').classList.add('on');
+
+	var cntdown = 3;
+	var timer = setInterval(function(){
+		document.querySelector('.comment').innerHTML = --cntdown;
+
+		if(cntdown === 1){
+			clearInterval(timer);
+
+			setTimeout(function(){
+				document.querySelector('.comment').classList.remove('on');
+				document.querySelectorAll('.card li.open').forEach(function(e){
+					e.classList.remove('open');
+				});
+			}, 1000);
+		}
+	}, 1000);
+});
 
 document.querySelectorAll('.card li').forEach(function(e){
+	var randomVal = valArr.shift();
+	e.dataset.value = randomVal > 5 ? randomVal - 5 : randomVal;
+
 	e.addEventListener('click', function(){
 		if(!this.classList.contains('open')){
 			openCard.push(this);
@@ -138,6 +179,12 @@ document.querySelectorAll('.card li').forEach(function(e){
 				setTimeout(function(){
 					openCard = [];
 					cardWrap.classList.remove('checking');
+
+					if(cardWrap.querySelectorAll('li.open').length === 10){
+						console.log('complete');
+						document.querySelector('.comment').classList.add('on');
+						document.querySelector('.comment').innerHTML = '축하합니다!<br>성공입니다!';
+					}
 				}, 500);
 			}
 		}
