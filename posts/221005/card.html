@@ -15,7 +15,8 @@
 	.card-wrap.on .github,
 	.card-wrap.on .card	{visibility:visible;}
 	.main-tit	{padding:20px;font-size:20px;text-align:center;}
-	.btn-start	{width:200px;height:50px;position:fixed;left:50%;top:50%;font-size:20px;font-weight:bold;color:#000;transform:translate(-50%, -50%);cursor:pointer;}
+	.btn-start	{width:200px;min-height:50px;padding:10px 5px;position:fixed;left:50%;top:50%;border:0;border-radius:0;font-size:20px;font-weight:bold;color:#fff;background-color:seagreen;transform:translate(-50%, -50%);cursor:pointer;box-shadow:10px 10px 20px rgba(0, 0, 0, 0.5);}
+	.btn-start .guide	{display:block;font-size:14px;font-weight:lighter;}
 	.comment	{visibility:hidden;display:flex;justify-content:center;align-items:center;width:100%;height:100%;position:fixed;left:0;top:0;font-size:100px;font-weight:bold;color:#000;background-color:rgba(0, 0, 0, 0.2);z-index:10;}
 	.comment.on	{visibility:visible;}
 	.card	{display:flex;justify-content:space-around;flex-wrap:wrap;}
@@ -52,7 +53,7 @@
 <body>
 <div class="card-wrap">
 	<h1 class="main-tit">동일한 카드 맞추기</h1>
-	<button type="button" class="btn-start">시작하기!</button>
+	<button type="button" class="btn-start">시작하기!<span class="guide">3초 동안 외워주세요.</span></button>
 	<div class="comment">3</div>
 	<ul class="card">
 		<li class="open">
