@@ -12,6 +12,7 @@
 * [image lazyload](posts/220520)
 
 ## **Example**
+* [앞면 동일한 카드 맞추기](posts/221005)
 * [drag and drop으로 파일 올리기](posts/220925)
 
 ## **Plugin**
