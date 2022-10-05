@@ -2,6 +2,7 @@
 
 [테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/221005/card.html)
 
+## **HTML**
 ```html
 <button type="button" class="btn-start">시작하기!</button>
 <div class="comment">3</div>
@@ -69,7 +70,8 @@
 </ul>
 ```
 
-```javascript
+## **JS**
+```js
 var openCard = [];
 var valArr = [];
 while (true) {
