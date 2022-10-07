@@ -23,13 +23,13 @@
 	.card.on	{visibility:visible;}
 	.card.checking	{position:relative;}
 	.card.checking:after	{content:'';width:100%;height:100%;position:absolute;left:0;top:0;}
-	.card li	{list-style:none;width:50%;height:220px;padding:5px;box-sizing:border-box;perspective:1000px;}
+	.card li	{list-style:none;width:25%;height:150px;padding:5px;box-sizing:border-box;perspective:500px;}
 	.card .flip	{width:100%;height:100%;position:relative;color:#fff;background-color:#333;transition:transform 0.5s;transform-style:preserve-3d;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
 	.card .open .flip	{transform:rotateY(180deg);}
 	.card .front,
 	.card .back	{width:100%;height:100%;position:absolute;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;}
 	.card .front	{display:flex;justify-content:center;align-items:center;font-size:60px;font-weight:bold;cursor:pointer;}
-	.card .back	{border:1px solid #ccc;font:0/0 a;background-repeat:no-repeat;background-position:50% 50%;background-size:40% auto;transform:rotateY(180deg);}
+	.card .back	{border:1px solid #ccc;font:0/0 a;background-repeat:no-repeat;background-position:50% 50%;background-size:60% auto;transform:rotateY(180deg);}
 	.card [data-value='1'] .back	{background-image:url('https://fe-jw.github.io/J-Web/posts/221005/1.svg');}
 	.card [data-value='2'] .back	{background-image:url('https://fe-jw.github.io/J-Web/posts/221005/2.svg');}
 	.card [data-value='3'] .back	{background-image:url('https://fe-jw.github.io/J-Web/posts/221005/3.svg');}
@@ -39,14 +39,12 @@
 
 	@media all and (min-width: 568px) and (max-width: 1023px)	{
 		.main-tit	{font-size:30px;}
-		.card li	{width:25%;height:250px;}
-		.card .back	{background-size:50% auto;}
+		.card li	{height:250px;}
 	}
 	
 	@media all and (min-width:1024px){
 		.main-tit	{font-size:40px;}
 		.card li	{width:20%;height:300px;}
-		.card .back	{background-size:60% auto;}
 	}
 </style>
 </head>
