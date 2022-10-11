@@ -58,7 +58,8 @@ function stopVideo(){
 
 하지만 위 방법은 현업에서 사용해보니 개선하고 싶은 부분이 있었다.  
 동영상 데이터까지 다운로드 해야 로딩이 완료되기 때문에 **로딩 속도가 느리다는 점**이다.  
-그래서 일부분을 `load` 이벤트에 넣어서 사용하고 있다.
+그래서 일부분을 `load` 이벤트에 넣어서 사용하고 있다.  
+그리고 `onYouTubeIframeAPIReady` 함수를 제거하고 내부를 밖으로 꺼낸다.
 ```js
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -66,19 +67,15 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 	
 window.addEventListener('load', function(){
-	var player;
-	function onYouTubeIframeAPIReady(){
-		player = new YT.Player('player', {
-			width: '640',
-			height: '360',
-			videoId: 'M7lc1UVf-VE',
-			events: {
-				'onReady': onPlayerReady,
-				'onStateChange': onPlayerStateChange
-			}
-		});
-	}
-	onYouTubeIframeAPIReady();	//추가
+	var player = new YT.Player('player', {
+		width: '640',
+		height: '360',
+		videoId: 'M7lc1UVf-VE',
+		events: {
+			'onReady': onPlayerReady,
+			'onStateChange': onPlayerStateChange
+		}
+	});
 
 	function onPlayerReady(event){
 		event.target.playVideo();
