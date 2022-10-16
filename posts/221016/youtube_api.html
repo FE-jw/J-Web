@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>YouTube Player API</title>
+<style>
+	*	{margin:0;padding:0;}
+	.wrap [class^='section_']	{height:100vh;position:relative;background-repeat:no-repeat;background-position:50% 50%;background-size:cover;}
+	.wrap .section_1	{background-image:url('https://fe-jw.github.io/J-Web/posts/221016/img_1.jpg');}
+	.wrap .section_2	{background-image:url('https://fe-jw.github.io/J-Web/posts/221016/img_2.jpg');}
+	.wrap .section_3	{background-image:url('https://fe-jw.github.io/J-Web/posts/221016/img_3.jpg');}
+	.wrap .section_4	{background-image:url('https://fe-jw.github.io/J-Web/posts/221016/img_4.jpg');}
+	.wrap .section_5	{background-image:url('https://fe-jw.github.io/J-Web/posts/221016/img_5.jpg');}
+
+	.load-txt	{display:block;padding:10px 0;text-align:center;background-color:rgba(255, 255, 255, 0.8);}
+	.my-player	{width:300px;height:200px;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);}
+
+	@media all and (min-width:768px)	{
+		.my-player	{width:600px;height:400px;}
+	}
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="section_1">
+		<span class="load-txt">로딩중...</span>
+		<div id="player" class="my-player"></div>
+	</div>
+	<div class="section_2"></div>
+	<div class="section_3"></div>
+	<div class="section_4"></div>
+	<div class="section_5"></div>
+</div>
+<script>
+//YouTube API 불러오기
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	
+window.addEventListener('load', function(){
+	//플레이어 설정
+	var player = new YT.Player('player', {
+		//width: '640',	//영상의 크기(css로 대체하는 게 편함)
+		//height: '360',	//영상의 크기(css로 대체하는 게 편함)
+		videoId: '4czjS9h4Fpg',	//영상 ID값
+		events: {
+			'onReady': onPlayerReady,	//로딩된 후에 실행
+			'onStateChange': onPlayerStateChange	//플레이어의 상태가 변경되면 실행
+		}
+	});
+
+	//로딩된 후에 실행할 함수
+	function onPlayerReady(event){
+		//event.target.playVideo();	//자동 재생을 피하고 싶다면 제거
+	}
+
+	//플레이어의 상태가 변경되면 실행되는 함수
+	var done = false;
+	function onPlayerStateChange(event){
+		if(event.data == YT.PlayerState.PLAYING && !done){
+			done = true;
+		}
+	}
+	
+	document.querySelector('.load-txt').innerHTML = '로딩 완료!<br>비디오 노출!';
+});
+</script>
+</body>
+</html>

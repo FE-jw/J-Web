@@ -1,6 +1,7 @@
 # **J-Web**
 
 ## **Posting**
+* [YouTube Player API](posts/221016)
 * [VSCode에서 snippets 활용하기](posts/220930)
 * [CSS flexbox](posts/220923)
 * [임시 샘플 이미지(placeholder image) 추가하기](posts/220916)
