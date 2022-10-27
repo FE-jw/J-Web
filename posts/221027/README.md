@@ -2,6 +2,7 @@
 
 [테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/221027/test.html)
 
+## **HTML**
 ```html
 <div id="SMARTpop" class="smart-pop">
 	<div class="pop-layer">
@@ -11,6 +12,7 @@
 </div>
 ```
 
+## **CSS**
 ```css
 .smart-pop	{overflow-y:auto;display:none;justify-content:center;align-items:center;width:100%;height:100%;padding:20px;position:fixed;left:0;top:0;background-color:rgba(0, 0, 0, 0.8);box-sizing:border-box;}
 .smart-pop.on	{display:flex;}
