@@ -1,6 +1,6 @@
 # **Swiper 센터 슬라이드 크기 키우기**
 
-[테스트 페이지 바로가기](swiper.html)
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/221028/swiper.html)
 
 기본적으로 transform scale로 센터 슬라이드를 확대할 경우 좌우 간격이 좁아지게 된다.  
 swiper-slide 자식 요소의 width, height를 확대하여 해결한 예제이다.
