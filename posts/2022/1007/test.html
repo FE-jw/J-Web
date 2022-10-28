@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"><!-- //모바일웹 추가 -->
+<meta name="format-detection" content="telephone=no">
+<title>test</title>
+<style>
+	*	{margin:0;padding:0;}
+	.wrap	{min-width:320px;position:relative;}
+	.img-1	{width:100%;vertical-align:top;}
+	.info	{position:absolute;left:0;top:0;}
+	.info li ~ li	{margin-top:20px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+	<img src="https://via.placeholder.com/1000x600" alt="" class="img-1">
+	<ul class="info">
+		<li>
+			렌더링 이미지 사이즈
+			<div>width: <span id="info-1"></span></div>
+			<div>height: <span id="info-2"></span></div>
+		</li>
+		<li>
+			원본 이미지 사이즈
+			<div>width: <span id="info-3"></span></div>
+			<div>height: <span id="info-4"></span></div>
+		</li>
+	</ul>
+	<p>브라우저 리사이즈 해보세요.</p>
+	<a href="https://github.com/FE-jw/J-Web/tree/main/posts/2022/1007#readme" target="_blank">Github 바로가기</a>
+</div>
+<script>
+	function onSizing(){
+		let renderImg = [];
+		let originImg = [];
+		let img = document.querySelector('.img-1');
+
+		renderImg.push(img.width);
+		renderImg.push(img.height);
+		document.getElementById('info-1').innerHTML = renderImg[0];
+		document.getElementById('info-2').innerHTML = renderImg[1];
+		
+		originImg.push(img.naturalWidth);
+		originImg.push(img.naturalHeight);
+		document.getElementById('info-3').innerHTML = originImg[0];
+		document.getElementById('info-4').innerHTML = originImg[1];
+
+		renderImg = null;
+		originImg = null;
+	}
+
+	window.addEventListener('load', function(){
+		onSizing();
+	});
+
+	window.addEventListener('resize', function(){
+		onSizing();
+	});
+</script>
+</body>
+</html>
