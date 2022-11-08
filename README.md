@@ -1,6 +1,7 @@
 # **J-Web**
 
 ## **Posting**
+* [JS Class](posts/2022/1108)
 * [YouTube Player API](posts/2022/1016)
 * [VSCode에서 snippets 활용하기](posts/2022/0930)
 * [CSS flexbox](posts/2022/0923)
