@@ -1,6 +1,6 @@
 # **Class**
 
-![Class](thumb.jpg)
+![Class](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/1108/thumb.jpg)
 
 ## **Class란?**
 > **_"Class는 객체를 생성하기 위한 템플릿입니다. 클래스는 데이터와 이를 조작하는 코드를 하나로 추상화합니다. 자바스크립트에서 클래스는 프로토타입을 이용해서 만들어졌지만 ES5의 클래스 의미와는 다른 문법과 의미를 가집니다. - MDN"_**  
