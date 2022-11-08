@@ -1,6 +1,6 @@
 # **YouTube Player API**
 
-![YouTube Player API](https://fe-jw.github.io/J-Web/posts/2022/1016/thumb.jpg)
+![YouTube Player API](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/1016/thumb.jpg)
 
 ## **YouTube Player API란?**
 YouTube 동영상 플레이어를 JavaScript를 사용하여 제어할 수 있게 해주는 API이다.  
