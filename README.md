@@ -22,9 +22,11 @@
 
 ## **Plugin**
 * [STA(Scroll Trigger Animation)](posts/2022/0527)
+* [SmartPop](posts/2022/1109)
 
 ## **Etc**
-* [React](https://github.com/FE-jw/react#readme)
+* [ReactJS](https://github.com/FE-jw/react#readme)
+* [NextJS](https://github.com/FE-jw/nextjs#readme)
 
 ## **Contact Me**
 * Email: [zaixu91@gmail.com](mailto:zaixu91@gmail.com)
