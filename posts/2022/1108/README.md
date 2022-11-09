@@ -35,7 +35,7 @@ class Rectangle{
 
 	//Getter
 	get area(){
-		returh this.calcArea();
+		return this.calcArea();
 	}
 
 	//Method
