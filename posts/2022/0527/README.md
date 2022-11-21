@@ -77,7 +77,8 @@ CSS는 transition 속성을 이용해 애니메이션 효과를 담당한다.<br
 ## **Options**
 ```javascript
 document.querySelectorAll('[data-sta]').STA({
-	repeatEffect: true //스크롤을 다시 내렸을 때 애니메이션을 반복할지 결정(기본값은 false)
+	repeatEffect: true, //스크롤을 다시 내렸을 때 애니메이션을 반복할지 결정(기본값은 false)
+	defaultOffset: 0.3 //트리거가 활성화 되는 지점 전체 변경(개별 설정(data-sta-offset)이 우선 순위가 더 높음)
 });
 ```
 
@@ -90,13 +91,13 @@ document.querySelectorAll('[data-sta]').STA({
 2. CSS
 	```html
 	<!-- 아래 CDN을 상용 서비스에 적용하지 마세요. 수정 시 서비스에 영향을 줄 수도 있습니다. -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fe-jw/STA/Ver1.4/sta.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fe-jw/STA/Ver1.5/sta.min.css">
 	```
 
 3. JS
 	```html
 	<!-- 아래 CDN을 상용 서비스에 적용하지 마세요. 수정 시 서비스에 영향을 줄 수도 있습니다. -->
-	<script src="https://cdn.jsdelivr.net/gh/fe-jw/STA/Ver1.4/sta.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fe-jw/STA/Ver1.5/sta.min.js"></script>
 	```
 
 4. Initialize
@@ -107,6 +108,6 @@ document.querySelectorAll('[data-sta]').STA({
 	});
 	```
 
-위 내용은 **Version 1.4**를 기준으로 작성되었습니다.
+위 내용은 **Version 1.5** 기준으로 작성되었습니다.
 * [Github 바로가기](https://github.com/FE-jw/STA#readme)
 * [Demo 페이지 바로가기](https://fe-jw.github.io/STA)
