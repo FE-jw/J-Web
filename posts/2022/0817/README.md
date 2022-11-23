@@ -1,6 +1,6 @@
 # **Git 명령어 정리**
 
-![Git 명령어 정리](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0707/thumb.jpg)
+![Git 명령어 정리](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0817/thumb.jpg)
 
 ## **git init**
 로컬에 Git 저장소를 생성한다.  
