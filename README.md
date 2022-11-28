@@ -21,8 +21,9 @@
 * [drag and drop으로 파일 올리기](posts/2022/0925)
 
 ## **Plugin**
-* [STA(Scroll Trigger Animation)](posts/2022/0527)
+* [STA](posts/2022/0527)
 * [SmartPop](posts/2022/1109)
+* [SmartTab](posts/2022/1128)
 
 ## **Etc**
 * [ReactJS](https://github.com/FE-jw/react#readme)
@@ -31,4 +32,4 @@
 ## **Contact Me**
 * Email: [zaixu91@gmail.com](mailto:zaixu91@gmail.com)
 * Web: [https://fe-jw.github.io](https://fe-jw.github.io)
-* Github: [https://github.com/FE-jw](https://github.com/FE-jw)
+* GitHub: [https://github.com/FE-jw](https://github.com/FE-jw)
