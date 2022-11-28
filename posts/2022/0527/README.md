@@ -108,6 +108,6 @@ document.querySelectorAll('[data-sta]').STA({
 	});
 	```
 
-위 내용은 **Version 1.5** 기준으로 작성되었습니다.
+위 내용은 **Version 1.5.1** 기준으로 작성되었습니다.
 * [Github 바로가기](https://github.com/FE-jw/STA#readme)
 * [Demo 페이지 바로가기](https://fe-jw.github.io/STA)
