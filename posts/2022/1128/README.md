@@ -58,7 +58,7 @@
 
 ### **SmartTab API**
 |name|type|required|description|
-|---|---|:---:|---|
+|---|---|---|---|
 |btnEle|string|O|탭 버튼 전체를 감싸는 요소의 class 명|
 |contentEle|string|O|탭 콘텐츠의 공통 class 명|
 |cssModeClass|string|O|탭 콘텐츠 활성화 class 명|
