@@ -39,7 +39,7 @@
 3. Add JS
 	```html
 	<!-- 아래 CDN을 상용 서비스에 적용하지 마세요. 수정 시 서비스에 영향을 줄 수도 있습니다. -->
- 	<script src="https://cdn.jsdelivr.net/gh/fe-jw/SmartTab/SmartTab.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fe-jw/SmartTab/SmartTab.min.js"></script>
 	```
 
 4. Initialize
@@ -57,8 +57,9 @@
 	```
 
 ### **SmartTab API**
+
 |name|type|required|description|
-|---|---|---|---|
+|---|---|:---:|---|
 |btnEle|string|O|탭 버튼 전체를 감싸는 요소의 class 명|
 |contentEle|string|O|탭 콘텐츠의 공통 class 명|
 |cssModeClass|string|O|탭 콘텐츠 활성화 class 명|
