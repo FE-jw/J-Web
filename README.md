@@ -1,6 +1,7 @@
 # **J-Web**
 
 ## **Posting**
+* [타입스크립트(TS)](posts/2022/1202)
 * [JS Class](posts/2022/1108)
 * [YouTube Player API](posts/2022/1016)
 * [VSCode에서 snippets 활용하기](posts/2022/0930)
