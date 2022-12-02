@@ -3,7 +3,7 @@
 ![TypeScript](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/1202/thumb.jpg)
 
 ## **[타입스크립트(TypeScript)란?](https://www.typescriptlang.org/)**
-타입스크립트(TypeScript)는 자바스크립트의 슈퍼셋<sub>(상위 확장)</sub>인 오픈소스 프로그래밍 언어이다.  
+타입스크립트(TypeScript)는 자바스크립트의 슈퍼셋<sub class="type-1">(상위 확장)</sub>인 오픈소스 프로그래밍 언어이다.  
 마이크로소프트에서 개발, 유지하고 있으며 엄격한 문법을 지원한다.  
 타입스크립트는 자바스크립트 엔진을 사용하면서 커다란 애플리케이션을 개발할 수 있게 설계된 언어이다.  
 자바스크립트의 슈퍼셋이기 때문에 자바스크립트로 작성된 프로그램이 타입스크립트 프로그램으로도 동작한다.  

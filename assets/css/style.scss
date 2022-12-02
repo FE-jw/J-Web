@@ -1,5 +1,5 @@
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
-/*! Custom Author: JW 2022-06-06. Edit: JW 2022-10-07 */
+/*! Custom Author: JW 2022-06-06. Edit: JW 2022-12-02 */
 @import 'https://cdn.jsdelivr.net/gh/fe-jw/fe-jw.github.io/css/font.css';
 $symbol-white: #d4d4d4;
 $symbol-dark: #141414;
@@ -24,6 +24,7 @@ mark{background-color:#ff0;color:#000;}
 small{font-size:80%;}
 sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
 sub{bottom:-0.25em;}
+sub.type-1	{color:#999;vertical-align:middle;}
 sup{top:-0.5em;}
 img{border-style:none;}
 svg:not(:root){overflow:hidden;}
