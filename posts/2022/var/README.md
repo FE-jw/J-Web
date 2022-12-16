@@ -14,7 +14,7 @@ let과 const는 2015년 ES6에서 탄생한 문법이다.
 var 키워드로 선언한 변수는 function scope, let 키워드로 선언한 변수는 block scope를 가지게 된다.  
 scope(범위)는 아래와 같이 크게 세 가지가 있다.
 1. function scope: 함수 내에서만 접근 가능
-2. block scope: 블럭 내에서만 접근 가능
+2. block scope: 블록 내에서만 접근 가능
 3. global scope: 전체 접근 가능
 
 var 키워드의 변수는 function scope를 가지기 때문에 test_1 함수 외부에서는 변수 wo에 접근이 불가능하다.
@@ -25,7 +25,7 @@ function test_1(){
 console.log(wo);	// 참조 에러 발생
 ```
 
-아래와 같이 if 블럭 내부의 변수에 접근하더라도 에러를 발생시키지 않는다.
+아래와 같이 if 블록 내부의 변수에 접근하더라도 에러를 발생시키지 않는다.
 ```js
 function test_2(){
 	if(true){
@@ -36,7 +36,7 @@ function test_2(){
 test_2();
 ```
 
-let 키워드의 변수는 block scope를 가지게 때문에 if 블럭 외부에서 wo에 접근이 불가능하다.
+let 키워드의 변수는 block scope를 가지게 때문에 if 블록 외부에서 wo에 접근이 불가능하다.
 ```js
 function test_3(){
 	if(true){
@@ -47,7 +47,7 @@ function test_3(){
 test_3();
 ```
 
-if 블럭 안에서 출력하면 에러를 발생시키지 않는다.
+if 블록 안에서 출력하면 에러를 발생시키지 않는다.
 ```js
 function test_4(){
 	if(true){
@@ -58,8 +58,8 @@ function test_4(){
 test_4();
 ```
 
-아래와 같이 let 키워드의  txt 변수에 'hello' string을 할당한 후 if 블럭 안에서 'world' string을 할당한 경우에는 'hello'를 출력하게 된다.  
-'world'를 할당한 구문은 if 블럭 내에서만 유효하기 때문이다.
+아래와 같이 let 키워드의 txt 변수에 'hello' string을 할당한 후 if 블록 안에서 'world' string을 할당한 경우에는 'hello'를 출력하게 된다.  
+'world'를 할당한 구문은 if 블록 내에서만 유효하기 때문이다.
 ```js
 function test_5(){
 	let txt = 'hello';
@@ -84,7 +84,7 @@ function test_6(){
 test_6();
 ```
 
-아래와 같이 global 변수로 선언된 2개의 변수가 있는 경우 브라우저의 전역 객체(window)의 속성을 확인해보면 var 키워드로 선언된 변수만 속성으로 등록된 것을 확인할 수 있다.  
+아래와 같이 global 변수로 선언된 2개의 변수가 있는 경우 브라우저의 전역 객체(window)의 속성을 확인해 보면 var 키워드로 선언된 변수만 속성으로 등록된 것을 확인할 수 있다.  
 프로젝트 규모가 커지는 경우, 협업을 하는 경우, 외부 라이브러리를 사용하는 경우 등이라면 window 객체는 단 하나뿐이기 때문에 건드리지 않는 것이 안전하다.
 ```js
 var a_myVar = 'var';
@@ -95,7 +95,7 @@ console.log(window);
 ![](img_1.jpg)
 
 ### **2. 중복 선언(variable redeclaration)**
-var 키워드를 사용하여 중복 선언 하는 경우 중복 선언해도 에러를 발생시키지 않는다.  
+var 키워드는 중복 선언이 가능하다.  
 프로젝트가 커져 변수 선언이 많아지거나 협업 시 문제가 될 수 있다.
 ```js
 var txt = '안녕하세요';
@@ -109,7 +109,7 @@ var txt = '반갑습니다';	// 동일한 이름의 변수 선언 가능
 console.log(txt);	// '반갑습니다' 출력
 ```
 
-let 키워드를 사용하여 중복 선언 하는 경우 문법 에러를 발생시킨다.  
+let 키워드를 사용하여 중복 선언하는 경우는 문법 에러를 발생시킨다.  
 ```js
 let txt = '안녕하세요';
 
@@ -121,7 +121,7 @@ let txt = '반갑습니다';	// 동일한 이름의 변수 선언 불가능
 ```
 
 ### **3. 호이스팅(hoisting)**
-변수 호이스팅이란 변수의 선언과 변수의 초기화를 분리해서 변수의 선언 부분만 프로그램 맨 위로 끌어올려주는 것을 의미한다.  
+변수 호이스팅이란 변수의 선언과 변수의 초기화를 분리해서 변수의 선언 부분만 프로그램 맨 위로 끌어올려 주는 것을 의미한다.  
 프로그램이 실행되기 이전에 JavaScript에게 사용할 변수를 미리 알려주는 것이다.
 ```js
 console.log(num);	// undefined
