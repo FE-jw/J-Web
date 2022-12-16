@@ -1,6 +1,6 @@
 # **let과 const를 써야하는 이유**
 
-![](thumb.jpg)
+![](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/1216/thumb.jpg)
 
 let과 const는 2015년 ES6에서 탄생한 문법이다.  
 이전에는 모두 var를 사용했지만 문제점들이 있었고 이를 보완하기 위해 만들어진 문법이다.
@@ -92,7 +92,7 @@ let a_myLet = 'let';
 console.log(window);
 ```
 
-![](img_1.jpg)
+![](https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/1216/img_1.jpg)
 
 ### **2. 중복 선언(variable redeclaration)**
 var 키워드는 중복 선언이 가능하다.  

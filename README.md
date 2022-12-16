@@ -1,6 +1,7 @@
 # **J-Web**
 
 ## **Posting**
+* [let과 const를 써야하는 이유](posts/2022/1216)
 * [타입스크립트(TS)](posts/2022/1202)
 * [JS Class](posts/2022/1108)
 * [YouTube Player API](posts/2022/1016)
