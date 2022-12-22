@@ -147,7 +147,7 @@ let anyArr: any[] = [1, 'hello', 2, 'world', {age: 20}];
 배열을 보다 특수한 형태로 사용할 수 있는 타입이다. 지정된 형식에 따라 아이템 순서를 설정해야 한다.
 ```ts
 let tupleArr: [number, string] = [1, 'hello'];
-tupleArr = ['world', 2];	// Number 타입이 먼저 와야 하므로 에러 발생
+tupleArr = ['world', 2];	//Number 타입이 먼저 와야 하므로 에러 발생
 ```
 
 ### **enum**
