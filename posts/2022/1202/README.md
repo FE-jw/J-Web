@@ -60,7 +60,7 @@ TS 파일은 바로 실행할 수 없는 파일이며 js 파일로 컴파일이 
 위 방법으로 컴파일을 해보면 js 파일이 생성되는 것을 확인할 수 있다.  
 `target` 값을 변경하여 문법 기준을 설정할 수 있다.
 ```ts
-const nums = [1, 2, 3];
+let nums: number[] = [1, 2, 3];
 nums.forEach(ele => {
 	console.log(ele);
 });
@@ -79,7 +79,7 @@ nums.forEach(function (ele) {
 `"target": "ES6"`로 설정하면 화살표 함수가 그대로 유지되는 것을 확인할 수 있다.
 ```js
 "use strict";
-const nums = [1, 2, 3];
+let nums = [1, 2, 3];
 nums.forEach(ele => {
 	console.log(ele);
 });
@@ -95,8 +95,77 @@ tsc -w
 //특정 폴더
 npx tsc -w
 ```
-<!--  -->
-<!-- ## **기본 타입** -->
-<!-- JS와 사용법이 동일하며 TS는 단지 타입을 지정할 뿐이다. -->
-<!--  -->
-<!-- * 문자열: -->
+
+## **타입**
+JS와 사용법이 동일하며 TS는 단지 타입을 지정할 뿐이다.
+
+### **Number**
+```ts
+let cnt: number = 0;
+```
+
+### **String**
+```ts
+let txt: string = 'hello';
+txt = 1;	//에러 발생
+```
+
+### **Boolean**
+```ts
+let isDone: boolean = true;
+```
+
+### **Any**
+어떤 타입도 할당 가능하며, 생략하면 any 타입이 지정된다.
+```ts
+let myAny: any = 1;
+myAny = 'any';
+```
+
+### **Number Array**
+```ts
+let numArr: number[] = [0, 1, 2];
+```
+
+### **String Array**
+```ts
+let txtArr: string[] = ['hello', 'world'];
+txtArr.push(1);	//문자열 배열인데 Number 타입을 push하면 에러 발생
+```
+
+### **Boolean Array**
+```ts
+let booArr: boolean[] = [false, false, true];
+```
+
+### **Any Array**
+```ts
+let anyArr: any[] = [1, 'hello', 2, 'world', {age: 20}];
+```
+
+### **tuple**
+배열을 보다 특수한 형태로 사용할 수 있는 타입이다. 지정된 형식에 따라 아이템 순서를 설정해야 한다.
+```ts
+let tupleArr: [number, string] = [1, 'hello'];
+tupleArr = ['world', 2];	// Number 타입이 먼저 와야 하므로 에러 발생
+```
+
+### **enum**
+여러 값들의 이름을 미리 정의하여 사용하는 열거형 타입(값을 설정할 수 있으며, 미설정 시 0부터 시작)
+```ts
+enum Direction	{
+	Up,
+	Down,
+	Left,
+	Right
+}
+console.log(Direction.Up);	//0 출력
+console.log(Direction.Down);	//1 출력
+
+enum Lang	{
+	Korea = 'ko',
+	America = 'en',
+	China = 'zh-hans'
+}
+console.log(Lang.Korea);	//'ko' 출력
+```
