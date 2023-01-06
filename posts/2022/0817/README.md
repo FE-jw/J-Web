@@ -87,3 +87,9 @@ git push origin branch-name
 ```
 git push origin -d branch-name
 ```
+
+## **git pull origin branch-name**
+특정 브랜치(branch-name)를 pull 한다.
+```
+git pull origin branch-name
+```
