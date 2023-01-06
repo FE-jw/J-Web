@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<title>isVisible prototype</title>
+	<style>
+		*	{margin:0;padding:0;}
+		.wrap	{line-height:1.2;font-size:16px;color:#000;}
+		.wrap .info	{padding:20px;position:fixed;left:10px;top:10px;border:2px solid #000;background-color:rgba(255, 255, 255, 0.9);}
+		.wrap .section	{display:flex;justify-content:center;align-items:center;height:90vh;background-color:tomato;}
+		.wrap .section:nth-child(2n-1)	{background-color:lightyellow;}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="info">
+		<p>보이면 true</p><br>
+		section 1: <span class="info_1"></span><br>
+		section 2: <span class="info_2"></span><br>
+		section 3: <span class="info_3"></span><br>
+		section 4: <span class="info_4"></span><br>
+		section 5: <span class="info_5"></span>
+	</div>
+	<div class="section_1 section">section 1</div>
+	<div class="section_2 section">section 2</div>
+	<div class="section_3 section">section 3</div>
+	<div class="section_4 section">section 4</div>
+	<div class="section_5 section">section 5</div>
+</div>
+<script>
+	HTMLElement.prototype.isVisible = function(){
+		//요소가 보이면 true, 안보이면 false 반환
+		const winTop = window.scrollY;
+		const winH = window.innerHeight;
+		const thisTop = winTop + this.getBoundingClientRect().top;
+		const thisBtm = winTop + this.getBoundingClientRect().bottom;
+
+		return winTop + winH > thisTop && winTop < thisBtm;
+	};
+
+	function funcScroll(){
+		const cont = document.querySelectorAll('.section');
+		const info = document.querySelectorAll('.info span');
+
+		cont.forEach((ele, idx) => {
+			info[idx].innerHTML = ele.isVisible();
+		});
+	}
+
+	window.addEventListener('load', funcScroll);
+	window.addEventListener('resize', funcScroll);
+	window.addEventListener('scroll', funcScroll);
+</script>
+</body>
+</html>
