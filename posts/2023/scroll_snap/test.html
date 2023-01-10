@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<title>Scroll Snap</title>
+	<style>
+		*	{margin:0;padding:0;}
+		body	{font-family:Arial, Helvetica, sans-serif;font-size:16px;color:#000;}
+		img	{vertical-align:top;}
+		li	{list-style:none;}
+		.tit	{font-size:30px;font-weight:bold;}
+		.desc	{}
+		.snap_wrap	{width:800px;background-color:lightyellow;
+			display:flex;
+			overflow-x:auto;
+		}
+		.wrap	{padding:20px;}
+		.wrap li ~ li	{margin-top:40px;}
+		.snap_wrap .item	{position:relative;}
+		.snap_wrap .item .thumb	{width:500px;}
+		.snap_wrap .item:after	{content:attr(data-index);display:flex;justify-content:center;align-items:center;width:100%;height:100%;position:absolute;left:0;top:0;font-size:30px;font-weight:bold;color:#fff;background-color:rgba(0, 0, 0, 0.5);}
+
+		.type_1	{scroll-snap-type:x mandatory;}
+		.type_1 .item	{scroll-snap-align:start;}
+		.type_1 .item ~ .item	{margin-left:20px;}
+
+		.type_2	{scroll-snap-type:x mandatory;}
+		.type_2 .item	{scroll-snap-align:end;}
+		.type_2 .item ~ .item	{margin-left:20px;}
+
+		.type_3	{scroll-snap-type:x mandatory;}
+		.type_3 .item	{scroll-snap-align:center;}
+		.type_3 .item ~ .item	{margin-left:20px;}
+	</style>
+</head>
+<body>
+<ul class="wrap">
+	<li>
+		<div class="tit">scroll-snap-align: start</div>
+		<p class="desc">item의 축이 container의 좌측 벽에 붙음</p>
+		<div class="snap_wrap type_1">
+			<div data-index="1" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="2" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="3" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="4" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="5" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="6" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="7" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="8" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+		</div>
+	</li>
+	<li>
+		<div class="tit">scroll-snap-align: end</div>
+		<p class="desc">item의 축이 container의 우측 벽에 붙음</p>
+		<div class="snap_wrap type_2">
+			<div data-index="1" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="2" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="3" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="4" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="5" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="6" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="7" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="8" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+		</div>
+	</li>
+	<li>
+		<div class="tit">scroll-snap-align: center</div>
+		<p class="desc">item의 축이 container의 센터에 위치</p>
+		<div class="snap_wrap type_3">
+			<div data-index="1" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="2" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="3" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="4" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="5" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="6" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="7" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+			<div data-index="8" class="item"><img src="https://cdn.jsdelivr.net/gh/fe-jw/J-Web/posts/2022/0520/cat_1.jpg" alt="" class="thumb"></div>
+		</div>
+	</li>
+</ul>
+</body>
+</html>
