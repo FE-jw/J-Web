@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Mobile Nav</title>
+<style>
+	*	{margin:0;padding:0;}
+	body	{line-height:1.2;font-size:16px;color:#000;}
+	button	{border:0;background:none;cursor:pointer;}
+	.header_wrap	{width:100%;height:80px;padding:0 20px;background-color:#000;box-sizing:border-box;}
+	.header	{display:flex;justify-content:space-between;align-items:center;width:100%;height:80px;}
+	.header .logo	{width:50px;height:50px;line-height:50px;font-size:14px;color:#fff;text-align:center;background-color:rgba(255, 255, 255, 0.1);}
+	.header .nav_on	{order:3;width:30px;height:30px;font:0/0 a;background:#fff url('menu.svg') no-repeat;background-size:100% 100%;}
+	.header .nav_wrap	{opacity:0;visibility:hidden;width:100vw;height:100vh;position:fixed;left:0;top:0;transition:opacity 0.3s, visibility 0.3s;}
+	.header .nav_wrap .nav_frame	{width:300px;height:100%;position:relative;background-color:#fff;transform:translateX(-100%);transition:transform 0.3s;overflow-y:auto;}
+	.header .nav_wrap .nav_frame .nav	{padding:100px 20px 50px;background-color:rgba(0, 0, 0, 0.5);}
+	.header .nav_wrap .nav_frame .nav a	{display:flex;justify-content:center;align-items:center;min-height:30px;padding:5px 0;font-size:16px;color:#000;}
+	.header .nav_wrap .nav_frame .nav a ~ a	{border-top:1px solid #000;}
+	.header .nav_wrap .nav_frame .nav_close	{width:30px;height:30px;position:absolute;right:10px;top:10px;font:0/0 a;background:#fff url('close.svg') no-repeat;background-size:100% 100%;}
+	.header .nav_wrap.on	{opacity:1;visibility:visible;background-color:rgba(0, 0, 0, 0.5);}
+	.header .nav_wrap.on .nav_frame	{transform:translateX(0);}
+</style>
+</head>
+<body>
+<header class="header_wrap">
+	<div class="header">
+		<h1 class="logo">logo</h1>
+		<button type="button" class="nav_on nav_toggle">메뉴</button>
+		<div class="nav_wrap">
+			<div class="nav_frame">
+				<nav class="nav">
+					<a href="#">nav 1</a><a href="#">nav 2</a><a href="#">nav 3</a><a href="#">nav 4</a><a href="#">nav 5</a><a href="#">nav 6</a><a href="#">nav 7</a><a href="#">nav 8</a><a href="#">nav 9</a><a href="#">nav 10</a><a href="#">nav 11</a><a href="#">nav 12</a><a href="#">nav 13</a><a href="#">nav 14</a><a href="#">nav 15</a><a href="#">nav 16</a><a href="#">nav 17</a><a href="#">nav 18</a><a href="#">nav 19</a><a href="#">nav 20</a>
+				</nav>
+				<button type="button" class="nav_close nav_toggle">메뉴 닫기</button>
+			</div>
+		</div>
+	</div>
+</header>
+<script>
+	function navToggle(){
+		var isOpened = document.querySelector('.nav_wrap').classList.contains('on');
+
+		function navClose(){
+			document.querySelector('.nav_wrap').classList.remove('on');
+		}
+
+		if(!isOpened){
+			// open
+			document.querySelector('.nav_wrap').classList.add('on');
+			document.querySelector('.nav_wrap.on').addEventListener('click', navClose);
+		}else{
+			// close
+			navClose();
+		}
+		
+		// 버블링 방지
+		document.querySelector('.nav_frame').addEventListener('click', function(e){
+			e.stopPropagation();
+		});
+	}
+
+	const toggleBtn = document.querySelectorAll('.header .nav_toggle');
+	toggleBtn.forEach(ele => {
+		ele.addEventListener('click', function(){
+			navToggle();
+		});
+	});
+
+	// 페이지 내 이동인 경우 추가
+	/*
+	const navBtn = document.querySelectorAll('.nav a');
+	navBtn.forEach(ele => {
+		ele.addEventListener('click', function(e){
+			e.preventDefault();
+			navToggle();
+		});
+	});
+	*/	
+</script>
+</body>
+</html>
