@@ -16,6 +16,7 @@
 * [image lazyload](posts/2022/0520)
 
 ## **Example**
+* [요소가 보이는지 판단하는 isVisible prototype](posts/2023/0116)
 * [Swiper 센터 슬라이드 크기 키우기](posts/2022/1028)
 * [Flexbox Layer Popup](posts/2022/1027)
 * [JS로 이미지의 원본 사이즈 가져오기](posts/2022/1007)

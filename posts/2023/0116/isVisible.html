@@ -7,10 +7,10 @@
 	<title>isVisible prototype</title>
 	<style>
 		*	{margin:0;padding:0;}
-		.wrap	{line-height:1.2;font-size:16px;color:#000;}
+		body	{font-family:Arial, Helvetica, sans-serif;line-height:1.2;font-size:16px;color:#000;}
 		.wrap .info	{padding:20px;position:fixed;left:10px;top:10px;border:2px solid #000;background-color:rgba(255, 255, 255, 0.9);}
-		.wrap .section	{display:flex;justify-content:center;align-items:center;height:90vh;background-color:tomato;}
-		.wrap .section:nth-child(2n-1)	{background-color:lightyellow;}
+		.wrap .section	{display:flex;justify-content:center;align-items:center;height:90vh;font-size:20px;font-weight:bold;background-color:tomato;}
+		.wrap .section:nth-child(odd)	{background-color:lightyellow;}
 	</style>
 </head>
 <body>
@@ -31,7 +31,7 @@
 </div>
 <script>
 	HTMLElement.prototype.isVisible = function(){
-		//요소가 보이면 true, 안보이면 false 반환
+		//요소가 보이면 true, 안 보이면 false 반환
 		const winTop = window.scrollY;
 		const winH = window.innerHeight;
 		const thisTop = winTop + this.getBoundingClientRect().top;
