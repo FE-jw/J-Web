@@ -4,21 +4,84 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
-<title>Mouse pageXY</title>
+<title>Mouse XY</title>
 <style>
 	*	{margin:0;padding:0;}
-	body	{line-height:1.2;font-size:14px;color:#000;}
-	
+	body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#000;}
+	.box	{/* width:500px; */height:500px;padding:20px;position:relative;color:#fff;background-color:royalblue;box-sizing:border-box;}
+	.box [class^='object_']	{width:30px;height:30px;position:absolute;pointer-events:none;}
+	.box [class^='object_'].enter	{transition:none;}
+	.box [class^='object_'].leave	{transition:transform 0.3s;}
+	.box .object_1	{left:200px;top:100px;background-color:#d33;}
+	.box .object_2	{right:200px;top:150px;background-color:greenyellow;}
+	.box .object_3	{left:200px;top:300px;background-color:#fff;}
+	.box .object_4	{right:200px;top:400px;background-color:tomato;}
 </style>
 </head>
 
 <body>
 <div class="wrap">
-	<div class="info">
-		<div class="row">pageX: <span id="info_1"></span></div>
-		<div class="row">pageY: <span id="info_2"></span></div>
+	<div class="box">
+		<p class="guide">파란 박스 안에서 마우스를 옮겨보세요.</p>
+		<div class="object_1 obj"></div>
+		<div class="object_2 obj"></div>
+		<div class="object_3 obj"></div>
+		<div class="object_4 obj"></div>
 	</div>
-	<div class="box"></div>
 </div>
+<script>
+	let startX;
+	let startY;
+	const box = document.querySelector('.box');
+	const objs = document.querySelectorAll('.obj');
+
+	function firstUpdate(evt){
+		objs.forEach(ele => {
+			ele.classList.remove('leave');
+			ele.classList.add('enter');
+		});
+		
+		if(window.innerWidth >= 1024 && startX == undefined){
+			startX = evt.offsetX;
+			startY = evt.offsetY;
+			console.log('firstUpdate');
+		}
+	}
+
+	function infoUpdate(evt){
+		if(window.innerWidth >= 1024){
+			const val_1 = startX - evt.offsetX;
+			const val_2 = startY - evt.offsetY;
+	
+			objs[0].style.transform = `translate(${val_1 / 10}%, ${val_2 / 5}%)`;
+			objs[1].style.transform = `translate(${val_1 / -5}%, ${val_2 / -30}%)`;
+			objs[2].style.transform = `translate(${val_1 / 3}%, ${val_2 / -10}%)`;
+			objs[3].style.transform = `translate(${val_1 / -20}%, ${val_2 / 20}%)`;
+		}
+	}
+
+	function lastUpdate(evt){
+		if(objs[0].classList.contains('enter')){
+			objs.forEach(ele => {
+				ele.classList.remove('enter');
+				ele.classList.add('leave');
+			});
+		}
+
+		if(window.innerWidth >= 1024){
+			startX = evt.offsetX;
+			startY = evt.offsetY;
+
+			objs[0].style.transform = '';
+			objs[1].style.transform = '';
+			objs[2].style.transform = '';
+			objs[3].style.transform = '';
+		}
+	}
+
+	box.addEventListener('mouseenter', firstUpdate);
+	box.addEventListener('mousemove', infoUpdate);
+	box.addEventListener('mouseleave', lastUpdate);
+</script>
 </body>
 </html>
