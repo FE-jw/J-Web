@@ -16,6 +16,7 @@
 * [image lazyload](posts/2022/0520)
 
 ## **Example**
+* [마우스 패럴렉스 효과](posts/2023/0125)
 * [요소가 보이는지 판단하는 isVisible prototype](posts/2023/0116)
 * [Swiper 센터 슬라이드 크기 키우기](posts/2022/1028)
 * [Flexbox Layer Popup](posts/2022/1027)

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Mouse Parallax</title>
+<style>
+	*	{margin:0;padding:0;}
+	body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#000;}
+	.MP-box	{height:600px;padding:20px;position:relative;color:#fff;background-color:royalblue;box-sizing:border-box;}
+	.obj	{width:30px;height:30px;position:absolute;pointer-events:none;}
+	.obj.mouseleave	{transition:transform 0.2s;}
+	.object_1	{left:200px;top:100px;background-color:#d33;}
+	.object_2	{right:200px;top:200px;background-color:springgreen;}
+	.object_3	{left:200px;top:350px;background-color:#fff;}
+	.object_4	{right:200px;top:420px;background-color:tomato;}
+	.guide	{padding:20px;}
+	.guide li	{list-style:none;padding-left:10px;position:relative;font-size:16px;}
+	.guide li:before	{content:'-';position:absolute;left:0;top:0;}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="MP-box">
+		<div class="obj object_1"></div>
+		<div class="obj object_2"></div>
+		<div class="obj object_3"></div>
+		<div class="obj object_4"></div>
+	</div>
+	<ul class="guide">
+		<li>파란 박스 안에서 마우스를 움직여보세요.</li>
+		<li>뷰포트 너비 1024px 이상인 경우에만 적용한 예제입니다.</li>
+	</ul>
+</div>
+<script>
+	/**
+	 * MP는 'Mouse Parallax'의 줄임말
+	 * 뷰포트 너비 1024px 이상인 경우 적용한 예제
+	 */
+	const MP = {
+		zone: document.querySelector('.MP-box'),	// 마우스 패럴렉스를 적용할 박스
+		objs: document.querySelectorAll('.MP-box .obj'),	// 움직일 요소들
+		start: {},	// 마우스 진입 시 좌표 저장(진입 시의 값을 기준으로 얼마나 움직였는지 판단하기 위함)
+		onEnter: (evt) => {
+			// 마우스 진입 시 실행
+			if(window.matchMedia('(min-width: 1024px)').matches){
+				MP.start.x = evt.offsetX;
+				MP.start.y = evt.offsetY;
+
+				MP.objs.forEach(ele => {
+					ele.classList.remove('mouseleave');
+				});
+			}
+		},
+		onMove: (evt) => {
+			// 마우스 움직일 때 실행
+			if(window.matchMedia('(min-width: 1024px)').matches){
+				const value = {
+					x: MP.start.x - evt.offsetX,
+					y: MP.start.y - evt.offsetY
+				};
+		
+				MP.objs[0].style.transform = `translate(${value.x / 10}%, ${value.y / 5}%)`;
+				MP.objs[1].style.transform = `translate(${value.x / -5}%, ${value.y / -30}%)`;
+				MP.objs[2].style.transform = `translate(${value.x / 3}%, ${value.y/ -10}%)`;
+				MP.objs[3].style.transform = `translate(${value.x / -20}%, ${value.y / 20}%)`;
+			}
+		},
+		onLeave: () => {
+			// 마우스 나갈 때 실행
+			if(window.matchMedia('(min-width: 1024px)').matches){
+				MP.objs.forEach(ele => {
+					ele.classList.add('mouseleave');
+					ele.style.transform = '';
+				});
+			}
+		}
+	};
+
+	MP.zone.addEventListener('mouseenter', MP.onEnter);
+	MP.zone.addEventListener('mousemove', MP.onMove);
+	MP.zone.addEventListener('mouseleave', MP.onLeave);
+</script>
+</body>
+</html>
