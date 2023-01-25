@@ -1,6 +1,6 @@
 # **마우스 패럴렉스 효과**
 
-[테스트 페이지 바로가기](test.html)
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/2023/0125/test.html)
 
 ---
 ## **HTML**
@@ -28,10 +28,7 @@
 const MP = {
 	box: document.querySelector('.MP-box'),	// 마우스 패럴렉스를 적용할 박스
 	objs: document.querySelectorAll('.MP-box .obj'),	// 움직일 요소들
-	start: {	// 마우스 진입 시 좌표 저장(진입 시의 값을 기준으로 얼마나 움직였는지 판단하기 위함)
-		x: null,
-		y: null
-	},
+	start: {},	// 마우스 진입 시 좌표 저장(진입 시의 값을 기준으로 얼마나 움직였는지 판단하기 위함)
 	onEnter: (evt) => {
 		// 마우스 진입 시 실행
 		if(window.matchMedia('(min-width: 1024px)').matches){

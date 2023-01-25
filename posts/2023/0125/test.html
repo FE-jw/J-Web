@@ -16,6 +16,8 @@
 	.object_3	{left:200px;top:350px;background-color:#fff;}
 	.object_4	{right:200px;top:420px;background-color:tomato;}
 	.guide	{padding:20px;}
+	.guide li	{list-style:none;padding-left:10px;position:relative;font-size:16px;}
+	.guide li:before	{content:'-';position:absolute;left:0;top:0;}
 </style>
 </head>
 
@@ -27,7 +29,10 @@
 		<div class="obj object_3"></div>
 		<div class="obj object_4"></div>
 	</div>
-	<p class="guide">- 파란 박스 안에서 마우스를 움직여보세요.</p>
+	<ul class="guide">
+		<li>파란 박스 안에서 마우스를 움직여보세요.</li>
+		<li>뷰포트 너비 1024px 이상인 경우에만 적용한 예제입니다.</li>
+	</ul>
 </div>
 <script>
 	/**
@@ -35,12 +40,9 @@
 	 * 뷰포트 너비 1024px 이상인 경우 적용한 예제
 	 */
 	const MP = {
-		box: document.querySelector('.MP-box'),	// 마우스 패럴렉스를 적용할 박스
+		zone: document.querySelector('.MP-box'),	// 마우스 패럴렉스를 적용할 박스
 		objs: document.querySelectorAll('.MP-box .obj'),	// 움직일 요소들
-		start: {	// 마우스 진입 시 좌표 저장(진입 시의 값을 기준으로 얼마나 움직였는지 판단하기 위함)
-			x: null,
-			y: null
-		},
+		start: {},	// 마우스 진입 시 좌표 저장(진입 시의 값을 기준으로 얼마나 움직였는지 판단하기 위함)
 		onEnter: (evt) => {
 			// 마우스 진입 시 실행
 			if(window.matchMedia('(min-width: 1024px)').matches){
@@ -77,9 +79,9 @@
 		}
 	};
 
-	MP.box.addEventListener('mouseenter', MP.onEnter);
-	MP.box.addEventListener('mousemove', MP.onMove);
-	MP.box.addEventListener('mouseleave', MP.onLeave);
+	MP.zone.addEventListener('mouseenter', MP.onEnter);
+	MP.zone.addEventListener('mousemove', MP.onMove);
+	MP.zone.addEventListener('mouseleave', MP.onLeave);
 </script>
 </body>
 </html>
