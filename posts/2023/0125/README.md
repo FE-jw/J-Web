@@ -26,7 +26,7 @@
  * 뷰포트 너비 1024px 이상인 경우 적용한 예제
  */
 const MP = {
-	box: document.querySelector('.MP-box'),	// 마우스 패럴렉스를 적용할 박스
+	zone: document.querySelector('.MP-box'),	// 마우스 패럴렉스를 적용할 박스
 	objs: document.querySelectorAll('.MP-box .obj'),	// 움직일 요소들
 	start: {},	// 마우스 진입 시 좌표 저장(진입 시의 값을 기준으로 얼마나 움직였는지 판단하기 위함)
 	onEnter: (evt) => {
@@ -65,7 +65,7 @@ const MP = {
 	}
 };
 
-MP.box.addEventListener('mouseenter', MP.onEnter);
-MP.box.addEventListener('mousemove', MP.onMove);
-MP.box.addEventListener('mouseleave', MP.onLeave);
+MP.zone.addEventListener('mouseenter', MP.onEnter);
+MP.zone.addEventListener('mousemove', MP.onMove);
+MP.zone.addEventListener('mouseleave', MP.onLeave);
 ```
