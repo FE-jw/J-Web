@@ -25,63 +25,77 @@
 		.header .nav_wrap .nav_frame .nav_close	{width:30px;height:30px;position:absolute;right:10px;top:10px;font:0/0 a;background:#fff url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 5 5 19M5 5l14 14' stroke='%23333' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;background-size:100% 100%;}
 		.header .nav_wrap.on	{opacity:1;visibility:visible;background-color:rgba(0, 0, 0, 0.5);}
 		.header .nav_wrap.on .nav_frame	{transform:translateX(0);}
+
+		.wrap	{display:flex;flex-direction:column;min-height:100vh;}
+		.container	{flex:1;display:flex;justify-content:center;align-items:center;background-color:#ccc;}
+		.footer	{padding:10px;color:#fff;text-align:center;background-color:#222;}
 	</style>
 </head>
 <body>
-<header class="header_wrap">
-	<div class="header">
-		<h1 class="logo"><a href="#">logo</a></h1>
-		<button type="button" class="nav_on nav_toggle">메뉴</button>
-		<div class="nav_wrap">
-			<div class="nav_frame">
-				<h2 class="sub_logo"><a href="#">sub logo 영역</a></h2>
-				<nav class="nav out">
-					<a href="#Nav_1">페이지 전환 1</a>
-					<a href="#Nav_2">페이지 전환 2</a>
-					<a href="#Nav_3">페이지 전환 3</a>
-					<a href="#Nav_4">페이지 전환 4</a>
-					<a href="#Nav_5">페이지 전환 5</a>
-					<a href="#" class="nav_toggle">내부 링크 1(클릭 시 메뉴 토글)</a>
-					<a href="#" class="nav_toggle">내부 링크 2(클릭 시 메뉴 토글)</a>
-					<a href="#" class="nav_toggle">내부 링크 3(클릭 시 메뉴 토글)</a>
-					<a href="#" class="nav_toggle">내부 링크 4(클릭 시 메뉴 토글)</a>
-					<a href="#" class="nav_toggle">내부 링크 5(클릭 시 메뉴 토글)</a>
-				</nav>
-				<button type="button" class="nav_close nav_toggle">메뉴 닫기</button>
+<div class="wrap">
+	<header class="header_wrap">
+		<div class="header">
+			<h1 class="logo"><a href="#">logo</a></h1>
+			<button type="button" class="nav_on nav_toggle">메뉴</button>
+			<div class="nav_wrap">
+				<div class="nav_frame">
+					<h2 class="sub_logo"><a href="#">sub logo 영역</a></h2>
+					<nav class="nav out">
+						<a href="#Nav_1">페이지 전환 1</a>
+						<a href="#Nav_2">페이지 전환 2</a>
+						<a href="#Nav_3">페이지 전환 3</a>
+						<a href="#Nav_4">페이지 전환 4</a>
+						<a href="#Nav_5">페이지 전환 5</a>
+						<a href="#" class="nav_toggle">내부 링크 1(클릭 시 메뉴 토글)</a>
+						<a href="#" class="nav_toggle">내부 링크 2(클릭 시 메뉴 토글)</a>
+						<a href="#" class="nav_toggle">내부 링크 3(클릭 시 메뉴 토글)</a>
+						<a href="#" class="nav_toggle">내부 링크 4(클릭 시 메뉴 토글)</a>
+						<a href="#" class="nav_toggle">내부 링크 5(클릭 시 메뉴 토글)</a>
+					</nav>
+					<button type="button" class="nav_close nav_toggle">메뉴 닫기</button>
+				</div>
 			</div>
 		</div>
-	</div>
-</header>
+	</header>
+	<section class="container">section</section>
+	<footer class="footer">footer</footer>
+</div>
 <script>
-	function navToggle(){
-		var isOpened = document.querySelector('.nav_wrap').classList.contains('on');
-
-		function navClose(){
-			document.querySelector('.nav_wrap').classList.remove('on');
+	const MyNavi = {
+		wrap: null,
+		isOpened: null,
+		init: () => {
+			MyNavi.wrap = document.querySelector('.nav_wrap');
+			MyNavi.wrap.querySelector('.nav_frame').addEventListener('click', function(evt){
+				evt.stopPropagation();
+			});
+			MyNavi.isOpened = false;
+		},
+		close: () => {
+			MyNavi.wrap.classList.remove('on');
+			MyNavi.isOpened = false;
+		},
+		open: () => {
+			MyNavi.wrap.classList.add('on');
+			document.querySelector('.nav_wrap.on').addEventListener('click', MyNavi.close);
+			MyNavi.isOpened = true;
+		},
+		toggle: () => {
+			MyNavi.isOpened ? MyNavi.close() : MyNavi.open();
 		}
-
-		if(!isOpened){
-			// open
-			document.querySelector('.nav_wrap').classList.add('on');
-			document.querySelector('.nav_wrap.on').addEventListener('click', navClose);
-		}else{
-			// close
-			navClose();
-		}
-		
-		// 버블링 방지
-		document.querySelector('.nav_frame').addEventListener('click', function(e){
-			e.stopPropagation();
-		});
-	}
+	};
 
 	const toggleBtn = document.querySelectorAll('.header .nav_toggle');
 	toggleBtn.forEach(ele => {
-		ele.addEventListener('click', function(e){
-			e.preventDefault();
-			navToggle();
+		ele.addEventListener('click', function(evt){
+			if(ele.tagName.toLowerCase() == 'a'){
+				evt.preventDefault();
+			}
+			MyNavi.toggle();
 		});
 	});
+
+	MyNavi.init();
 </script>
 </body>
 </html>
