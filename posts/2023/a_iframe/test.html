@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<title>a target iframe</title>
+	<style>
+		*	{margin:0;padding:0;}
+		body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#000;}
+		.btns	{display:flex;justify-content:center;gap:4px;margin-bottom:20px;}
+		.btns a	{padding:10px;font-weight:bold;color:#fff;text-decoration:none;background-color:#d33;}
+		.btns a:hover	{text-decoration:underline;}
+		iframe	{display:block;width:320px;height:200px;margin:0 auto;border:none;background-color:#000;}
+		button	{padding:10px;border:none;font-weight:bold;color:#fff;background-color:#d33;cursor:pointer;}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="btns">
+		<a href="https://youtube.com/embed/1C_zuHf6lP4" target="vdo_frame">영상 1</a>
+		<a href="https://youtube.com/embed/69uT90tEJdE" target="vdo_frame">영상 2</a>
+		<a href="https://youtube.com/embed/9tXlqWldVVk" target="vdo_frame">영상 3</a>
+		<a href="about:blank" target="vdo_frame">종료(a)</a>
+		<button type="button">종료(button)</button>
+	</div>
+	<iframe src="about:blank" name="vdo_frame"></iframe>
+</div>
+<script>
+	const btn = document.querySelector('button');
+	btn.addEventListener('click', () => {
+		document.querySelector('iframe').src = 'about:blank';
+	});
+</script>
+</body>
+</html>
