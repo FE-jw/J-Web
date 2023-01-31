@@ -18,7 +18,7 @@
 		.header .nav_wrap	{opacity:0;visibility:hidden;display:flex;justify-content:flex-end;width:100vw;height:100vh;position:fixed;left:0;top:0;transition:opacity 0.3s, visibility 0.3s, background-color 0.3s;}
 		.header .nav_wrap .nav_frame	{display:flex;flex-direction:column;width:320px;height:100%;padding:50px 20px 20px;position:relative;background-color:#fff;transform:translateX(100%);transition:transform 0.3s;box-sizing:border-box;}
 		.header .nav_wrap .nav_frame .sub_logo	{font-size:20px;text-align:center;}
-		.header .nav_wrap .nav_frame .sub_logo a	{display:flex;justify-content:center;align-items:center;height:50px;color:#d33;background-color:#ccc;}
+		.header .nav_wrap .nav_frame .sub_logo a	{display:flex;justify-content:center;align-items:center;height:50px;color:#000;background-color:#ccc;}
 		.header .nav_wrap .nav_frame .nav	{flex:1;margin-top:10px;background-color:#efefef;overflow-y:auto;}
 		.header .nav_wrap .nav_frame .nav a	{display:flex;justify-content:center;align-items:center;min-height:30px;padding:5px 0;font-size:16px;color:#000;}
 		.header .nav_wrap .nav_frame .nav a ~ a	{border-top:1px solid lightgray;}
@@ -61,41 +61,41 @@
 	<footer class="footer">footer</footer>
 </div>
 <script>
-	const MyNavi = {
+	const MyNav = {
 		wrap: null,
 		isOpened: null,
 		init: () => {
-			MyNavi.wrap = document.querySelector('.nav_wrap');
-			MyNavi.wrap.querySelector('.nav_frame').addEventListener('click', function(evt){
+			MyNav.wrap = document.querySelector('.nav_wrap');
+			MyNav.wrap.querySelector('.nav_frame').addEventListener('click', function(evt){
 				evt.stopPropagation();
 			});
-			MyNavi.isOpened = false;
+			MyNav.isOpened = false;
 		},
 		close: () => {
-			MyNavi.wrap.classList.remove('on');
-			MyNavi.isOpened = false;
+			MyNav.wrap.classList.remove('on');
+			MyNav.isOpened = false;
 		},
 		open: () => {
-			MyNavi.wrap.classList.add('on');
-			document.querySelector('.nav_wrap.on').addEventListener('click', MyNavi.close);
-			MyNavi.isOpened = true;
+			MyNav.wrap.classList.add('on');
+			document.querySelector('.nav_wrap.on').addEventListener('click', MyNav.close);
+			MyNav.isOpened = true;
 		},
 		toggle: () => {
-			MyNavi.isOpened ? MyNavi.close() : MyNavi.open();
+			MyNav.isOpened ? MyNav.close() : MyNav.open();
 		}
 	};
 
-	const toggleBtn = document.querySelectorAll('.header .nav_toggle');
-	toggleBtn.forEach(ele => {
+	const toggleNav = document.querySelectorAll('.header .nav_toggle');
+	toggleNav.forEach(ele => {
 		ele.addEventListener('click', function(evt){
 			if(ele.tagName.toLowerCase() == 'a'){
 				evt.preventDefault();
 			}
-			MyNavi.toggle();
+			MyNav.toggle();
 		});
 	});
 
-	MyNavi.init();
+	MyNav.init();
 </script>
 </body>
 </html>
