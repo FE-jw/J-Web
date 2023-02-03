@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<title>Swiper Only PC</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+	<style>
+		*	{margin:0;padding:0;}
+		html	{-webkit-text-size-adjust:none;font-size:10px;}
+		body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#000;}
+		li	{list-style:none;}
+		button	{border:none;background:none;cursor:pointer;}
+		button[class^='btn_']	{margin:1.0rem;padding:1.0rem;font-size:2.0rem;color:#fff;background-color:#285430;}
+
+		.wrap	{padding-bottom:5.0rem;}
+		.tit	{padding:1.0rem;font-size:3.0rem;}
+		.list-swiper	{margin-top:1.0rem;}
+		.list-swiper li ~ li	{margin-top:2.0rem;}
+		.list-swiper .swiper-tit	{padding:1.0rem;font-size:2.0rem;}
+
+		.swiper-initialized	{margin:0 1.0rem;overflow:hidden;}
+		.swiper-slide	{display:flex;justify-content:center;align-items:center;text-align:center;height:300px;font-size:2.5rem;font-weight:bold;color:#fff;background-color:#557153;}
+		.swiper-slide:nth-child(even)	{background-color:#7D8F69;}
+
+		.swiper_2:not(.swiper-initialized)	{margin:0 1.0rem;}
+		.swiper_2:not(.swiper-initialized) .swiper-wrapper	{display:block;}
+		.swiper_2:not(.swiper-initialized) .swiper-slide	{height:120px;}
+
+		.swiper_3	{height:300px;}
+
+		@media all and (min-width: 1024px){
+
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<h1 class="tit">스와이퍼(Swiper) 예제</h1>
+	<ul class="list-swiper">
+		<li>
+			<h2 class="swiper-tit">기본</h2>
+			<div class="swiper_1">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">Swiper 1-1</div>
+					<div class="swiper-slide">Swiper 1-2</div>
+					<div class="swiper-slide">Swiper 1-3</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<h2 class="swiper-tit">1024px 미만에서 destroy</h2>
+			<div class="swiper_2">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">Swiper 2-1<br>개발자 도구 console창에서 확인</div>
+					<div class="swiper-slide">Swiper 2-2<br>개발자 도구 console창에서 확인</div>
+					<div class="swiper-slide">Swiper 2-3<br>개발자 도구 console창에서 확인</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<h2 class="swiper-tit">분기 별로 다른 옵션 적용</h2>
+			<div class="swiper_3">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">Swiper 3-1<br>768px 미만은 freemode<br>768~1023px은 vertical<br>1024px 이상은 horizontal + slidePerView 3</div>
+					<div class="swiper-slide">Swiper 3-2<br>768px 미만은 freemode<br>768~1023px은 vertical<br>1024px 이상은 horizontal + slidePerView 3</div>
+					<div class="swiper-slide">Swiper 3-3<br>768px 미만은 freemode<br>768~1023px은 vertical<br>1024px 이상은 horizontal + slidePerView 3</div>
+					<div class="swiper-slide">Swiper 3-4<br>768px 미만은 freemode<br>768~1023px은 vertical<br>1024px 이상은 horizontal + slidePerView 3</div>
+					<div class="swiper-slide">Swiper 3-5<br>768px 미만은 freemode<br>768~1023px은 vertical<br>1024px 이상은 horizontal + slidePerView 3</div>
+					<div class="swiper-slide">Swiper 3-6<br>768px 미만은 freemode<br>768~1023px은 vertical<br>1024px 이상은 horizontal + slidePerView 3</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+	const swiper_1 = new Swiper('.swiper_1'); 
+
+	// 1024px 미만에서 destroy
+	const swiper_2 = {
+		options: {},
+		_this: undefined,
+		onUpdate: function(){
+			if(window.innerWidth < 1024){
+				if(swiper_2._this != undefined){
+					console.log('swiper_2 destroy');
+					swiper_2._this.destroy();
+					swiper_2._this = undefined;
+				}
+			}else{
+				if(swiper_2._this == undefined){
+					console.log('swiper_2 init');
+					swiper_2._this = new Swiper('.swiper_2');
+				}
+			}
+		},
+		onInit: function(){
+			swiper_2.onUpdate();
+			window.addEventListener('resize', swiper_2.onUpdate);
+		}
+	};
+	swiper_2.onInit();
+
+	// 1024px 이상, 미만에서 다른 옵션 적용
+	const swiper_3 = {
+		options_1: {
+			freeMode: true
+		},
+		options_2: {
+			direction: 'vertical'
+		},
+		options_3: {
+			direction: 'horizontal',
+			slidesPerView: 3,
+      		spaceBetween: 30,
+			loop: true
+		},
+		_this: null,
+		destroy: function(){
+			swiper_3._this.destroy();
+		},
+		onUpdate: function(){
+			if(window.innerWidth < 768){
+				if(!swiper_3._this.classNames.includes('swiper-free-mode')){
+					swiper_3._this.destroy();
+					swiper_3._this = new Swiper('.swiper_3', swiper_3.options_1);
+				}
+			}
+			
+			if(window.innerWidth >= 768 && window.innerWidth < 1024){
+				if(!swiper_3._this.classNames.includes('swiper-vertical')){
+					swiper_3._this.destroy();
+					swiper_3._this = new Swiper('.swiper_3', swiper_3.options_2);
+				}
+			}
+			
+			if(window.innerWidth >= 1024){
+				if(!swiper_3._this.classNames.includes('swiper-horizontal') || swiper_3._this.classNames.includes('swiper-free-mode')){
+					swiper_3._this.destroy();
+					swiper_3._this = new Swiper('.swiper_3', swiper_3.options_3);
+				}
+			}
+		},
+		onInit: function(){
+			if(window.innerWidth < 768){
+				swiper_3.options = swiper_3.options_1;
+			}
+
+			if(window.innerWidth >= 768 && window.innerWidth < 1024){
+				swiper_3.options = swiper_3.options_2;
+			}
+			
+			if(window.innerWidth >= 1024){
+				swiper_3.options = swiper_3.options_3;
+			}
+			
+			swiper_3._this = new Swiper('.swiper_3', swiper_3.options);
+			window.addEventListener('resize', swiper_3.onUpdate);
+		}
+	};
+	swiper_3.onInit();
+</script>
+</body>
+</html>
