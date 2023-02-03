@@ -16,6 +16,7 @@
 * [image lazyload](posts/2022/0520)
 
 ## **Example**
+* [scroll snap](posts/2023/0203)
 * [a 태그와 iframe 태그로 유튜브 영상 연결하기](posts/2023/0130)
 * [마우스 패럴렉스 효과](posts/2023/0125)
 * [요소가 보이는지 판단하는 isVisible prototype](posts/2023/0116)
