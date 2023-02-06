@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 	<meta name="format-detection" content="telephone=no">
-	<title>Mobile Nav</title>
+	<title>Responsive Header</title>
 	<style>
 		*	{margin:0;padding:0;}
 		body	{font-family:Arial, Helvetica, sans-serif;line-height:1.2;font-size:16px;color:#000;}
@@ -29,6 +29,25 @@
 		.wrap	{display:flex;flex-direction:column;min-height:100vh;}
 		.container	{flex:1;display:flex;justify-content:center;align-items:center;background-color:#ccc;}
 		.footer	{padding:10px;color:#fff;text-align:center;background-color:#222;}
+
+		@media (min-width: 1024px)	{
+			.header	{justify-content:flex-start;}
+			.header .nav_on	{display:none;}
+			.header .nav_wrap	{opacity:1;visibility:visible;display:block;width:auto;height:auto;position:static;left:auto;top:auto;transition:none;}
+			.header .nav_wrap .nav_frame	{display:block;width:auto;padding:0;position:relative;background-color:transparent;transform:none;transition:none;}
+			.header .nav_wrap .nav_frame .sub_logo	{display:none;}
+			.header .nav_wrap .nav_frame .nav	{flex:auto;display:flex;margin-top:0;background-color:transparent;overflow-y:visible;}
+			.header .nav_wrap .nav_frame .nav a	{display:flex;justify-content:center;align-items:center;height:80px;padding:10px;color:#fff;box-sizing:border-box;}
+			.header .nav_wrap .nav_frame .nav a ~ a	{border:none;}
+			.header .nav_wrap .nav_frame .nav a:nth-child(4),
+			.header .nav_wrap .nav_frame .nav a:nth-child(5),
+			.header .nav_wrap .nav_frame .nav a:nth-child(8),
+			.header .nav_wrap .nav_frame .nav a:nth-child(9),
+			.header .nav_wrap .nav_frame .nav a:nth-child(10)	{display:none;}
+			.header .nav_wrap .nav_frame .nav_close	{display:none;}
+			.header .nav_wrap.on	{background-color:transparent;}
+			.header .nav_wrap.on .nav_frame	{transform:none;}
+		}
 	</style>
 </head>
 <body>
@@ -40,7 +59,7 @@
 			<div class="nav_wrap">
 				<div class="nav_frame">
 					<h2 class="sub_logo"><a href="#">sub logo 영역</a></h2>
-					<nav class="nav out">
+					<nav class="nav">
 						<a href="#Nav_1">페이지 전환 1</a>
 						<a href="#Nav_2">페이지 전환 2</a>
 						<a href="#Nav_3">페이지 전환 3</a>
@@ -57,31 +76,44 @@
 			</div>
 		</div>
 	</header>
-	<section class="container">section</section>
+	<section class="container">1024px 기준으로 모바일, PC</section>
 	<footer class="footer">footer</footer>
 </div>
 <script>
 	const MyNav = {
 		wrap: null,
 		isOpened: null,
+		close: () => {
+			if(MyNav.wrap.classList.contains('on')){
+				MyNav.wrap.classList.remove('on');
+				MyNav.isOpened = false;
+			}
+		},
+		open: () => {
+			if(!MyNav.wrap.classList.contains('on')){
+				MyNav.wrap.classList.add('on');
+				document.querySelector('.nav_wrap.on').addEventListener('click', MyNav.close);
+				MyNav.isOpened = true;
+			}
+		},
+		toggle: () => {
+			MyNav.isOpened ? MyNav.close() : MyNav.open();
+		},
+		resize: () => {
+			if(window.innerWidth >= 1024){
+				MyNav.close();
+			}
+
+			window.addEventListener('resize', MyNav.resize);
+		},
 		init: () => {
 			MyNav.wrap = document.querySelector('.nav_wrap');
 			MyNav.wrap.querySelector('.nav_frame').addEventListener('click', function(evt){
 				evt.stopPropagation();
 			});
 			MyNav.isOpened = false;
-		},
-		close: () => {
-			MyNav.wrap.classList.remove('on');
-			MyNav.isOpened = false;
-		},
-		open: () => {
-			MyNav.wrap.classList.add('on');
-			document.querySelector('.nav_wrap.on').addEventListener('click', MyNav.close);
-			MyNav.isOpened = true;
-		},
-		toggle: () => {
-			MyNav.isOpened ? MyNav.close() : MyNav.open();
+
+			MyNav.resize();
 		}
 	};
 
@@ -91,7 +123,10 @@
 			if(ele.tagName.toLowerCase() == 'a'){
 				evt.preventDefault();
 			}
-			MyNav.toggle();
+
+			if(window.innerWidth < 1024){
+				MyNav.toggle();
+			}
 		});
 	});
 

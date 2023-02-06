@@ -30,6 +30,10 @@
 
 		.swiper_3	{height:300px;}
 
+		.swiper_4	{position:relative;}
+		.btn_wrap	{display:flex;justify-content:center;}
+		.swiper-pagination-bullet-active	{background-color:#285430;}
+
 		@media all and (min-width: 1024px){
 
 		}
@@ -72,6 +76,25 @@
 				</div>
 			</div>
 		</li>
+		<li>
+			<h2 class="swiper-tit">add, remove, update slide</h2>
+			<div class="swiper_4">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">Swiper 4-1</div>
+					<div class="swiper-slide">Swiper 4-2</div>
+					<div class="swiper-slide">Swiper 4-3</div>
+					<div class="swiper-slide">Swiper 4-4</div>
+					<div class="swiper-slide">Swiper 4-5</div>
+					<div class="swiper-slide">Swiper 4-6</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="btn_wrap">
+				<button type="button" class="btn_add">add slide</button>
+				<button type="button" class="btn_remove">remove slide</button>
+				<button type="button" class="btn_remove_all">remove all slide</button>
+			</div>
+		</li>
 	</ul>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
@@ -103,7 +126,7 @@
 	};
 	swiper_2.onInit();
 
-	// 1024px 이상, 미만에서 다른 옵션 적용
+	// 분기 별로 다른 옵션 적용
 	const swiper_3 = {
 		options_1: {
 			freeMode: true
@@ -161,6 +184,51 @@
 		}
 	};
 	swiper_3.onInit();
+
+	const swiper_4 = {
+		options: {
+			pagination: {
+				el: '.swiper_4 .swiper-pagination'
+			}
+		},
+		_this: undefined,
+		onInit: function(){
+			swiper_4._this = new Swiper('.swiper_4', swiper_4.options);
+		},
+		onUpdate: function(){
+			swiper_4._this.update();
+		},
+		onAdd: function(){
+			const length = swiper_4._this.slides.length;
+
+			swiper_4._this.appendSlide('<div class="swiper-slide">Swiper 4-' + (length + 1) + '</div>');
+			swiper_4.onUpdate();
+		},
+		onRemove: function(){
+			const length = swiper_4._this.slides.length;
+			
+			swiper_4._this.removeSlide(length - 1);
+			swiper_4.onUpdate();
+		},
+		onRemoveAll: function(){
+			const length = swiper_4._this.slides.length;
+
+			for(var idx = 0; idx < length; idx++){
+				swiper_4._this.removeSlide(0);
+			}
+		}
+	};
+	swiper_4.onInit();
+
+	document.querySelector('.btn_wrap .btn_add').addEventListener('click', function(){
+		swiper_4.onAdd();
+	});
+	document.querySelector('.btn_wrap .btn_remove').addEventListener('click', function(){
+		swiper_4.onRemove();
+	});
+	document.querySelector('.btn_wrap .btn_remove_all').addEventListener('click', function(){
+		swiper_4.onRemoveAll();
+	});
 </script>
 </body>
 </html>
