@@ -12,7 +12,7 @@
 		body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#000;}
 		li	{list-style:none;}
 		button	{border:none;background:none;cursor:pointer;}
-		button[class^='btn_']	{margin:1.0rem;padding:1.0rem;font-size:2.0rem;color:#fff;background-color:#285430;}
+		button[class^='btn_']	{margin:1.0rem 0.5rem;padding:1.0rem;border-radius:0.5rem;font-size:2.0rem;color:#fff;background-color:#285430;}
 
 		.wrap	{padding-bottom:5.0rem;}
 		.tit	{padding:1.0rem;font-size:3.0rem;}
@@ -188,13 +188,11 @@
 	const swiper_4 = {
 		options: {
 			pagination: {
-				el: '.swiper_4 .swiper-pagination'
+				el: '.swiper_4 .swiper-pagination',
+				clickable: true
 			}
 		},
 		_this: undefined,
-		onInit: function(){
-			swiper_4._this = new Swiper('.swiper_4', swiper_4.options);
-		},
 		onUpdate: function(){
 			swiper_4._this.update();
 		},
@@ -216,19 +214,18 @@
 			for(var idx = 0; idx < length; idx++){
 				swiper_4._this.removeSlide(0);
 			}
+
+			swiper_4.onUpdate();
+		},
+		onInit: function(){
+			swiper_4._this = new Swiper('.swiper_4', swiper_4.options);
+
+			document.querySelector('.btn_wrap .btn_add').addEventListener('click', swiper_4.onAdd);
+			document.querySelector('.btn_wrap .btn_remove').addEventListener('click', swiper_4.onRemove);
+			document.querySelector('.btn_wrap .btn_remove_all').addEventListener('click', swiper_4.onRemoveAll);
 		}
 	};
 	swiper_4.onInit();
-
-	document.querySelector('.btn_wrap .btn_add').addEventListener('click', function(){
-		swiper_4.onAdd();
-	});
-	document.querySelector('.btn_wrap .btn_remove').addEventListener('click', function(){
-		swiper_4.onRemove();
-	});
-	document.querySelector('.btn_wrap .btn_remove_all').addEventListener('click', function(){
-		swiper_4.onRemoveAll();
-	});
 </script>
 </body>
 </html>
