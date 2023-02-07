@@ -33,6 +33,8 @@
 		.swiper_4	{position:relative;}
 		.btn_wrap	{display:flex;justify-content:center;}
 		.swiper-pagination-bullet-active	{background-color:#285430;}
+		
+		.swiper_5	{position:relative;}
 
 		@media all and (min-width: 1024px){
 
@@ -93,6 +95,17 @@
 				<button type="button" class="btn_add">add slide</button>
 				<button type="button" class="btn_remove">remove slide</button>
 				<button type="button" class="btn_remove_all">remove all slide</button>
+			</div>
+		</li>
+		<li>
+			<h2 class="swiper-tit">마지막, 처음 슬라이드에서 방향 변경</h2>
+			<div class="swiper_5">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">Swiper 5-1</div>
+					<div class="swiper-slide">Swiper 5-2</div>
+					<div class="swiper-slide">Swiper 5-3</div>
+				</div>
+				<div class="swiper-pagination"></div>
 			</div>
 		</li>
 	</ul>
@@ -226,6 +239,40 @@
 		}
 	};
 	swiper_4.onInit();
+
+	const swiper_5 = {
+		options: {
+			allowTouchMove: false,
+			pagination: {
+				el: '.swiper_5 .swiper-pagination'
+			}
+		},
+		_this: null,
+		direction: 'ltr',
+		interval: null,
+		edgeReverse: function(){
+			swiper_5.interval = setInterval(function(){
+				if(swiper_5.direction === 'ltr'){
+					swiper_5._this.slideNext(500);
+				}else if(swiper_5.direction === 'rtl'){
+					swiper_5._this.slidePrev(500);
+				}
+
+				swiper_5._this.on('toEdge', function(){
+					if(swiper_5._this.isEnd){
+						swiper_5.direction = 'rtl';
+					}else if(swiper_5._this.isBeginning){
+						swiper_5.direction = 'ltr';
+					}
+				});
+			}, 2000);
+		},
+		onInit: function(){
+			swiper_5._this = new Swiper('.swiper_5', swiper_5.options);
+			swiper_5.edgeReverse();
+		}
+	};
+	swiper_5.onInit();
 </script>
 </body>
 </html>
