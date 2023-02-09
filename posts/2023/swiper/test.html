@@ -21,7 +21,7 @@
 		.list-swiper .swiper-tit	{padding:1.0rem;font-size:2.0rem;}
 
 		.swiper-initialized	{margin:0 1.0rem;overflow:hidden;}
-		.swiper-slide	{display:flex;justify-content:center;align-items:center;text-align:center;height:300px;font-size:2.5rem;font-weight:bold;color:#fff;background-color:#557153;}
+		.swiper-slide	{display:flex;justify-content:center;align-items:center;text-align:center;height:300px;padding:1.0rem;font-size:2.0rem;font-weight:bold;color:#fff;background-color:#557153;box-sizing:border-box;}
 		.swiper-slide:nth-child(even)	{background-color:#7D8F69;}
 
 		.swiper_2:not(.swiper-initialized)	{margin:0 1.0rem;}
@@ -39,8 +39,13 @@
 		.swiper_6_wrap	{margin:0 1.0rem;overflow:hidden;}
 		.swiper_6	{width:100%;max-width:600px;margin:0 auto;overflow:visible;}
 
-		@media all and (min-width: 1024px){
+		.swiper_7 .swiper-slide	{font-size:1.2rem;transition:background-color 0.3s;}
+		.swiper_7 .swiper-slide.active	{background-color:#333;}
 
+		@media all and (min-width: 1024px){
+			.swiper-slide	{font-size:2.5rem;}
+
+			.swiper_7 .swiper-slide	{font-size:2.0rem;}
 		}
 	</style>
 </head>
@@ -127,16 +132,16 @@
 			<h2 class="swiper-tit">센터 슬라이드 기준으로 주변 슬라이드에 class 추가</h2>
 			<div class="swiper_7">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">Swiper 7-1</div>
-					<div class="swiper-slide">Swiper 7-2</div>
-					<div class="swiper-slide">Swiper 7-3</div>
-					<div class="swiper-slide">Swiper 7-4</div>
-					<div class="swiper-slide">Swiper 7-5</div>
-					<div class="swiper-slide">Swiper 7-6</div>
-					<div class="swiper-slide">Swiper 7-7</div>
-					<div class="swiper-slide">Swiper 7-8</div>
-					<div class="swiper-slide">Swiper 7-9</div>
-					<div class="swiper-slide">Swiper 7-10</div>
+					<div class="swiper-slide">Swiper 7-1<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-2<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-3<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-4<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-5<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-6<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-7<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-8<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-9<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
+					<div class="swiper-slide">Swiper 7-10<br>활성화된 슬라이드 기준으로 앞, 뒤로 2개 배경색 #333</div>
 				</div>
 			</div>
 		</li>
@@ -182,8 +187,7 @@
 		options_3: {
 			direction: 'horizontal',
 			slidesPerView: 3,
-      		spaceBetween: 30,
-			loop: true
+      		spaceBetween: 30
 		},
 		_this: null,
 		destroy: function(){
@@ -323,22 +327,36 @@
 	// 센터 슬라이드 기준으로 주변 슬라이드에 class 추가
 	const swiper_7 = {
 		options: {
-			slidesPerView: 3,
+			slidesPerView: 6,
   			spaceBetween: 20,
 			centeredSlides: true,
-			initialSlide: 2
+			initialSlide: 2,
+			autoplay: {
+				delay: 2000
+			}
 		},
 		_this: undefined,
-		changeClass: function(){
-			const centerIdx = swiper_7._this.realIndex;
+		resetClass: function(){
+			const centerIdx = swiper_7._this.activeIndex + 1;
+			const standard = 2;	// 앞, 뒤로 몇 개
+			const formula = ':nth-child(n+' + Math.abs(centerIdx - standard) + '):nth-child(-n+' + (standard + centerIdx) +')';
+			const activeSlides = swiper_7._this.wrapperEl.querySelectorAll('.swiper-slide' + formula);	// 활성화된 슬라이드 기준으로 이전 2(standard - 1)개, 이후 2개 슬라이드들
+			const inactiveSlides = swiper_7._this.wrapperEl.querySelectorAll('.swiper-slide:not(' + formula + ')');	// 활성화된 슬라이드 기준으로 이전 2(standard - 1)개, 이후 2개 슬라이드들
 
-			swiper_7._this.on('slideChange', function(){
-				swiper_7._this.slides[centerIdx - 1].classList.add('first-slide');
-			});
+			for(let idx = 0; idx < inactiveSlides.length; idx++){
+				inactiveSlides[idx].classList.remove('active');
+			}
+
+			for(let idx = 0; idx < activeSlides.length; idx++){
+				activeSlides[idx].classList.add('active');
+			}
 		},
 		init: function(){
 			swiper_7._this = new Swiper('.swiper_7', swiper_7.options);
-			swiper_7.changeClass();
+			swiper_7.resetClass();
+			swiper_7._this.on('slideChange', function(){
+				swiper_7.resetClass();
+			});
 		}
 	};
 	swiper_7.init();
