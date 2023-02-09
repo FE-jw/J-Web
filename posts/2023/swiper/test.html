@@ -36,6 +36,9 @@
 		
 		.swiper_5	{position:relative;}
 
+		.swiper_6_wrap	{margin:0 1.0rem;overflow:hidden;}
+		.swiper_6	{width:100%;max-width:600px;margin:0 auto;overflow:visible;}
+
 		@media all and (min-width: 1024px){
 
 		}
@@ -108,17 +111,46 @@
 				<div class="swiper-pagination"></div>
 			</div>
 		</li>
+		<li>
+			<h2 class="swiper-tit">슬라이드 최대 너비 지정</h2>
+			<div class="swiper_6_wrap">
+				<div class="swiper_6">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">Swiper 6-1<br>최대 너비 600px</div>
+						<div class="swiper-slide">Swiper 6-2<br>최대 너비 600px</div>
+						<div class="swiper-slide">Swiper 6-3<br>최대 너비 600px</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<h2 class="swiper-tit">센터 슬라이드 기준으로 주변 슬라이드에 class 추가</h2>
+			<div class="swiper_7">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">Swiper 7-1</div>
+					<div class="swiper-slide">Swiper 7-2</div>
+					<div class="swiper-slide">Swiper 7-3</div>
+					<div class="swiper-slide">Swiper 7-4</div>
+					<div class="swiper-slide">Swiper 7-5</div>
+					<div class="swiper-slide">Swiper 7-6</div>
+					<div class="swiper-slide">Swiper 7-7</div>
+					<div class="swiper-slide">Swiper 7-8</div>
+					<div class="swiper-slide">Swiper 7-9</div>
+					<div class="swiper-slide">Swiper 7-10</div>
+				</div>
+			</div>
+		</li>
 	</ul>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script>
-	const swiper_1 = new Swiper('.swiper_1'); 
+	const swiper_1 = new Swiper('.swiper_1');
 
 	// 1024px 미만에서 destroy
 	const swiper_2 = {
 		options: {},
 		_this: undefined,
-		onUpdate: function(){
+		update: function(){
 			if(window.innerWidth < 1024){
 				if(swiper_2._this != undefined){
 					console.log('swiper_2 destroy');
@@ -132,12 +164,12 @@
 				}
 			}
 		},
-		onInit: function(){
-			swiper_2.onUpdate();
-			window.addEventListener('resize', swiper_2.onUpdate);
+		init: function(){
+			swiper_2.update();
+			window.addEventListener('resize', swiper_2.update);
 		}
 	};
-	swiper_2.onInit();
+	swiper_2.init();
 
 	// 분기 별로 다른 옵션 적용
 	const swiper_3 = {
@@ -157,7 +189,7 @@
 		destroy: function(){
 			swiper_3._this.destroy();
 		},
-		onUpdate: function(){
+		update: function(){
 			if(window.innerWidth < 768){
 				if(!swiper_3._this.classNames.includes('swiper-free-mode')){
 					swiper_3._this.destroy();
@@ -179,7 +211,7 @@
 				}
 			}
 		},
-		onInit: function(){
+		init: function(){
 			if(window.innerWidth < 768){
 				swiper_3.options = swiper_3.options_1;
 			}
@@ -193,11 +225,12 @@
 			}
 			
 			swiper_3._this = new Swiper('.swiper_3', swiper_3.options);
-			window.addEventListener('resize', swiper_3.onUpdate);
+			window.addEventListener('resize', swiper_3.update);
 		}
 	};
-	swiper_3.onInit();
+	swiper_3.init();
 
+	// add, remove, update slide
 	const swiper_4 = {
 		options: {
 			pagination: {
@@ -206,40 +239,41 @@
 			}
 		},
 		_this: undefined,
-		onUpdate: function(){
+		update: function(){
 			swiper_4._this.update();
 		},
-		onAdd: function(){
+		add: function(){
 			const length = swiper_4._this.slides.length;
 
 			swiper_4._this.appendSlide('<div class="swiper-slide">Swiper 4-' + (length + 1) + '</div>');
-			swiper_4.onUpdate();
+			swiper_4.update();
 		},
-		onRemove: function(){
+		remove: function(){
 			const length = swiper_4._this.slides.length;
 			
 			swiper_4._this.removeSlide(length - 1);
-			swiper_4.onUpdate();
+			swiper_4.update();
 		},
-		onRemoveAll: function(){
+		removeAll: function(){
 			const length = swiper_4._this.slides.length;
 
 			for(var idx = 0; idx < length; idx++){
 				swiper_4._this.removeSlide(0);
 			}
 
-			swiper_4.onUpdate();
+			swiper_4.update();
 		},
-		onInit: function(){
+		init: function(){
 			swiper_4._this = new Swiper('.swiper_4', swiper_4.options);
 
-			document.querySelector('.btn_wrap .btn_add').addEventListener('click', swiper_4.onAdd);
-			document.querySelector('.btn_wrap .btn_remove').addEventListener('click', swiper_4.onRemove);
-			document.querySelector('.btn_wrap .btn_remove_all').addEventListener('click', swiper_4.onRemoveAll);
+			document.querySelector('.btn_wrap .btn_add').addEventListener('click', swiper_4.add);
+			document.querySelector('.btn_wrap .btn_remove').addEventListener('click', swiper_4.remove);
+			document.querySelector('.btn_wrap .btn_remove_all').addEventListener('click', swiper_4.removeAll);
 		}
 	};
-	swiper_4.onInit();
+	swiper_4.init();
 
+	// 마지막, 처음 슬라이드에서 방향 변경
 	const swiper_5 = {
 		options: {
 			allowTouchMove: false,
@@ -267,12 +301,47 @@
 				});
 			}, 2000);
 		},
-		onInit: function(){
+		init: function(){
 			swiper_5._this = new Swiper('.swiper_5', swiper_5.options);
 			swiper_5.edgeReverse();
 		}
 	};
-	swiper_5.onInit();
+	swiper_5.init();
+
+	// 슬라이드 최대 너비 지정
+	const swiper_6 = {
+		options: {
+			spaceBetween: 20
+		},
+		_this: undefined,
+		init: function(){
+			swiper_6._this = new Swiper('.swiper_6', swiper_6.options);
+		}
+	};
+	swiper_6.init();
+	
+	// 센터 슬라이드 기준으로 주변 슬라이드에 class 추가
+	const swiper_7 = {
+		options: {
+			slidesPerView: 3,
+  			spaceBetween: 20,
+			centeredSlides: true,
+			initialSlide: 2
+		},
+		_this: undefined,
+		changeClass: function(){
+			const centerIdx = swiper_7._this.realIndex;
+
+			swiper_7._this.on('slideChange', function(){
+				swiper_7._this.slides[centerIdx - 1].classList.add('first-slide');
+			});
+		},
+		init: function(){
+			swiper_7._this = new Swiper('.swiper_7', swiper_7.options);
+			swiper_7.changeClass();
+		}
+	};
+	swiper_7.init();
 </script>
 </body>
 </html>
