@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 	<meta name="format-detection" content="telephone=no">
-	<title>Swiper Only PC</title>
+	<title>Swiper 다양한 예제</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 	<style>
 		*	{margin:0;padding:0;}
@@ -12,7 +12,7 @@
 		body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#000;}
 		li	{list-style:none;}
 		button	{border:none;background:none;cursor:pointer;}
-		button[class^='btn_']	{margin:1.0rem 0.5rem;padding:1.0rem;border-radius:0.5rem;font-size:2.0rem;color:#fff;background-color:#285430;}
+		button[class^='btn_']	{margin:1.0rem 0.5rem;padding:1.0rem;border-radius:0.5rem;font-family:inherit;font-size:2.0rem;color:#fff;background-color:#285430;}
 
 		.wrap	{padding-bottom:5.0rem;}
 		.tit	{padding:1.0rem;font-size:3.0rem;}
@@ -42,10 +42,21 @@
 		.swiper_7 .swiper-slide	{font-size:1.2rem;transition:background-color 0.3s;}
 		.swiper_7 .swiper-slide.active	{background-color:#333;}
 
+		.list-swiper li:nth-child(8)	{height:200px;}
+		.swiper_8	{margin:0;transition:transform 0.2s ease-out;box-sizing:border-box;}
+		.swiper_8.swiper-initialized	{max-width:100%;position:fixed;right:0;bottom:2.0rem;z-index:100;}
+		.swiper_8.hide	{transform:translateX(100%);}
+		.swiper_8 .swiper-slide	{width:150px;height:80px;}
+		.swiper_8 .swiper-slide:first-child	{margin-left:1.0rem;}
+		.swiper_8 .swiper-slide:last-child	{margin-right:1.0rem;}
+		
 		@media all and (min-width: 1024px){
 			.swiper-slide	{font-size:2.5rem;}
-
+			
 			.swiper_7 .swiper-slide	{font-size:2.0rem;}
+			
+			.swiper_8 .swiper-slide	{width:auto;height:auto;}
+			.swiper_8 + .btn_toggle_swiper_8	{display:none;}
 		}
 	</style>
 </head>
@@ -67,9 +78,9 @@
 			<h2 class="swiper-tit">1024px 미만에서 destroy</h2>
 			<div class="swiper_2">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">Swiper 2-1<br>개발자 도구 console창에서 확인</div>
-					<div class="swiper-slide">Swiper 2-2<br>개발자 도구 console창에서 확인</div>
-					<div class="swiper-slide">Swiper 2-3<br>개발자 도구 console창에서 확인</div>
+					<div class="swiper-slide">Swiper 2-1</div>
+					<div class="swiper-slide">Swiper 2-2</div>
+					<div class="swiper-slide">Swiper 2-3</div>
 				</div>
 			</div>
 		</li>
@@ -145,6 +156,19 @@
 				</div>
 			</div>
 		</li>
+		<li>
+			<h2 class="swiper-tit">1024px 미만에서 가로 정렬 플로팅 배너</h2>
+			<div class="swiper_8">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">Swiper 8-1</div>
+					<div class="swiper-slide">Swiper 8-2</div>
+					<div class="swiper-slide">Swiper 8-3</div>
+					<div class="swiper-slide">Swiper 8-4</div>
+					<div class="swiper-slide">Swiper 8-5</div>
+				</div>
+			</div>
+			<button type="button" class="btn_toggle_swiper_8">배너 토글</button>
+		</li>
 	</ul>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
@@ -153,18 +177,15 @@
 
 	// 1024px 미만에서 destroy
 	const swiper_2 = {
-		options: {},
 		_this: undefined,
 		update: function(){
 			if(window.innerWidth < 1024){
 				if(swiper_2._this != undefined){
-					console.log('swiper_2 destroy');
 					swiper_2._this.destroy();
 					swiper_2._this = undefined;
 				}
 			}else{
 				if(swiper_2._this == undefined){
-					console.log('swiper_2 init');
 					swiper_2._this = new Swiper('.swiper_2');
 				}
 			}
@@ -360,6 +381,37 @@
 		}
 	};
 	swiper_7.init();
+
+	// 1024px 미만에서 destroy
+	const swiper_8 = {
+		options: {
+			slidesPerView: 'auto',
+			spaceBetween: 10
+		},
+		_this: undefined,
+		update: function(){
+			if(window.innerWidth >= 1024){
+				if(swiper_8._this != undefined){
+					swiper_8._this.destroy();
+					swiper_8._this = undefined;
+				}
+			}else{
+				if(swiper_8._this == undefined){
+					swiper_8._this = new Swiper('.swiper_8', swiper_8.options);
+				}
+			}
+		},
+		init: function(){
+			swiper_8.update();
+			window.addEventListener('resize', swiper_8.update);
+			document.querySelector('.btn_toggle_swiper_8').addEventListener('click', function(){
+				if(swiper_8._this){
+					document.querySelector('.swiper_8').classList.toggle('hide');
+				}
+			});
+		}
+	};
+	swiper_8.init();
 </script>
 </body>
 </html>
