@@ -16,6 +16,7 @@
 * [image lazyload](posts/2022/0520)
 
 ## **Example**
+* [Priority Nav 플러그인 예제](posts/2023/0224)
 * [Swiper 다양한 예제](posts/2023/0210)
 * [scroll snap](posts/2023/0203)
 * [a 태그와 iframe 태그로 유튜브 영상 연결하기](posts/2023/0130)
