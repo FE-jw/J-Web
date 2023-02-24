@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<title>Mouse Cursor Custom</title>
+	<style>
+		*	{margin:0;padding:0;}
+		/* html	{cursor:none;} */
+		body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#000;}
+		a	{color:inherit;text-decoration:none;cursor:none;}
+		button	{border:none;background:none;cursor:none;font:inherit;}
+		li	{list-style:none;}
+		.flex_item	{display:block;width:100%;}
+
+		.section	{display:flex;justify-content:center;align-items:center;height:90vh;text-align:center;}
+		.section:nth-child(odd)	{background-color:lightyellow;}
+		.section:nth-child(even)	{background-color:lightgreen;}
+		.section .tit	{font-size:20px;}
+		.section nav	{margin:20px;}
+		.section a	{display:inline-block;padding:10px 20px;font-size:16px;color:#fff;background-color:#333;}
+		.section button	{padding:10px 20px;font-size:16px;color:#fff;background-color:#333;}
+
+		/* cursor style */
+		.my_cursor	{position:fixed;left:0;top:0;z-index:1000;pointer-events:none;}
+		.my_cursor .cursor	{width:30px;height:30px;margin-left:-15px;margin-top:-15px;border-radius:50%;background-color:#d33;transition:all 0.2s;}
+		.my_cursor.zoomIn .cursor	{opacity:0.7;transform:scale(2);}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<section class="section">
+		<div class="flex_item">
+			<h1 class="tit">section 1</h1>
+			<nav>
+				<a href="#none">a 태그</a>
+			</nav>
+			<div>
+				<button type="button">button 태그</button>
+			</div>
+			<input type="text" placeholder="input">
+			<label for="#">label tag</label>
+		</div>
+	</section>
+	<section class="section">
+		<h1 class="tit">section 2</h1>
+	</section>
+	<section class="section">
+		<h1 class="tit">section 3</h1>
+	</section>
+</div>
+<script>
+	const StyleCursor = {
+		cursor: {},
+		value: {},
+		zoomIn: function(){
+			StyleCursor.cursor.parent.classList.add('zoomIn');
+		},
+		zoomOut: function(){
+			StyleCursor.cursor.parent.classList.remove('zoomIn');			
+		},
+		move: function(mouse){
+			StyleCursor.value.x = mouse.clientX;
+			StyleCursor.value.y = mouse.clientY;
+			StyleCursor.cursor.parent.style.transform = 'translate(' + StyleCursor.value.x + 'px, ' + StyleCursor.value.y + 'px)';
+		},
+		init: function(){
+			StyleCursor.cursor.parent = document.createElement('div');
+			StyleCursor.cursor.parent.classList.add('my_cursor');
+			StyleCursor.cursor.default = document.createElement('div');
+			StyleCursor.cursor.default.classList.add('cursor');
+			StyleCursor.cursor.parent.append(StyleCursor.cursor.default);
+			document.body.append(StyleCursor.cursor.parent);
+
+			const zoomObj = document.querySelectorAll('a, button');
+			if(zoomObj){
+				zoomObj.forEach(ele => {
+					ele.addEventListener('mouseenter', StyleCursor.zoomIn);
+					ele.addEventListener('mouseleave', StyleCursor.zoomOut);
+				});
+			}
+
+			document.documentElement.addEventListener('mousemove', StyleCursor.move);
+		}
+	};
+	StyleCursor.init();
+</script>
+</body>
+</html>
