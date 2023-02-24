@@ -21,6 +21,7 @@
 		li	{list-style:none;}
 		.header	{display:flex;background-color:#111;}
 		.header .logo	{display:flex;justify-content:center;align-items:center;width:80px;height:50px;color:#fff;background-color:rgba(255, 255, 255, 0.3);}
+		.desc	{padding:10px;font-size:16px;}
 		
 		.priority-nav {
 			white-space: nowrap;
@@ -96,7 +97,8 @@
 		</ul>
 	</nav>
 </header>
-<button type="button" class="btn_destroy">destroy prioriy nav</button>
+<p class="desc">브라우저 너비에 맞춰 네비 버튼이 'more' 안으로 들어갑니다. 반응형 웹에서 유용합니다.</p>
+<button type="button" class="btn_destroy">Destroy Priority Nav</button>
 <script>
 	(function (root, factory) {
 	if (typeof define === "function" && define.amd) {
