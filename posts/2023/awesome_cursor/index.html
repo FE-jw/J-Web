@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<title>Mouse Cursor Custom</title>
+	<style>
+		*	{margin:0;padding:0;}
+		/* html	{cursor:none;} */
+		body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#000;cursor:none;}
+		button	{border:none;background:none;font:inherit;}
+		li	{list-style:none;}
+		.flex_item	{display:block;width:100%;}
+
+		input, label, a, button	{cursor:none;}	/* 마우스 커서 제거할 요소들 */
+
+		.section	{display:flex;justify-content:center;align-items:center;height:90vh;text-align:center;}
+		.section:nth-child(odd)	{background-color:lightyellow;}
+		.section:nth-child(even)	{background-color:lightgreen;}
+		.section .tit	{font-size:20px;}
+		.section nav	{margin:20px;}
+		.section a	{font-size:16px;}
+		.section button	{padding:10px 20px;font-size:16px;color:#fff;background-color:#333;}
+
+		/* cursor style */
+		.smart_cursor	{display:none;position:fixed;left:0;top:0;z-index:1000;pointer-events:none;}
+		.smart_cursor.enter	{display:block;}
+		.smart_cursor .cursor	{width:20px;height:20px;border-radius:50%;background-color:#d33;transform:translate(-50%, -50%);transition:all 0.2s;}
+		.smart_cursor.clickable .cursor	{transform:scale(1.5);}
+		.smart_cursor.anchor .cursor	{background-color:royalblue;}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<section class="section">
+		<div class="flex_item">
+			<h1 class="tit">section 1</h1>
+			<nav>
+				<a href="#none" data-cursor="clickable">링크 태그</a>
+				<a href="#none" data-cursor="anchor">링크 이동</a>
+			</nav>
+			<div>
+				<button type="button" data-cursor="clickable">button 태그</button>
+			</div>
+			<input type="text" placeholder="input" id="myInp">
+			<label for="myInp" data-cursor="clickable">label tag</label>
+		</div>
+	</section>
+	<section class="section">
+		<h1 class="tit">section 2</h1>
+	</section>
+	<section class="section">
+		<h1 class="tit">section 3</h1>
+	</section>
+</div>
+<script>
+	const SmartCursor = {
+		cursor: {},
+		value: {},
+		clickable: {
+			off: function(){
+				SmartCursor.cursor.parent.classList.remove('clickable');
+			},
+			on: function(){
+				SmartCursor.cursor.parent.classList.add('clickable');
+			}
+		},
+		anchor: {
+			off: function(){
+				SmartCursor.cursor.parent.classList.remove('anchor');
+			},
+			on: function(){
+				SmartCursor.cursor.parent.classList.add('anchor');
+			}
+		},
+		enter: function(){
+			SmartCursor.cursor.parent.classList.add('enter');
+		},
+		leave: function(){
+			SmartCursor.cursor.parent.classList.remove('enter');
+		},
+		move: function(mouse){
+			SmartCursor.value.x = mouse.clientX;
+			SmartCursor.value.y = mouse.clientY;
+			SmartCursor.cursor.parent.style.transform = 'translate(' + SmartCursor.value.x + 'px, ' + SmartCursor.value.y + 'px)';
+		},
+		init: function(){
+			// 커서 생성
+			SmartCursor.cursor.parent = document.createElement('div');
+			SmartCursor.cursor.parent.classList.add('smart_cursor');
+
+			// 커서 1: 디폴트
+			SmartCursor.cursor.default = document.createElement('div');
+			SmartCursor.cursor.default.classList.add('cursor');
+
+			// 커서 2: 클릭 가능
+			SmartCursor.cursor.clickable = document.createElement('div');
+			SmartCursor.cursor.clickable.classList.add('clickable');
+			const clickObj = document.querySelectorAll('[data-cursor="clickable"]');
+			if(clickObj){
+				clickObj.forEach(ele => {
+					ele.addEventListener('mouseenter', SmartCursor.clickable.on);
+					ele.addEventListener('mouseleave', SmartCursor.clickable.off);
+				});
+			}
+
+			// 커서 3: 링크 이동
+			SmartCursor.cursor.anchor = document.createElement('div');
+			SmartCursor.cursor.anchor.classList.add('anchor');
+			const anchorObj = document.querySelectorAll('[data-cursor="anchor"]');
+			if(anchorObj){
+				anchorObj.forEach(ele => {
+					ele.addEventListener('mouseenter', SmartCursor.anchor.on);
+					ele.addEventListener('mouseleave', SmartCursor.anchor.off);
+				});
+			}
+
+			// 커서 요소 삽입
+			SmartCursor.cursor.parent.append(
+				SmartCursor.cursor.default,
+				SmartCursor.cursor.clickable,
+				SmartCursor.cursor.anchor
+			);
+			document.body.append(SmartCursor.cursor.parent);
+
+			document.documentElement.addEventListener('mouseenter', SmartCursor.enter);
+			document.documentElement.addEventListener('mouseleave', SmartCursor.leave);
+			document.documentElement.addEventListener('mousemove', SmartCursor.move);
+		}
+	};
+	SmartCursor.init();
+</script>
+</body>
+</html>
