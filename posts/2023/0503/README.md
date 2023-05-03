@@ -1,6 +1,6 @@
 # **SmartCursor로 마우스 커서 커스텀하기**
 
-[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/2023/0503/test.html)
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/2023/0503/index.html)
 
 CSS의 cursor 속성을 이용하는 경우 구현의 한계가 있다.  
 요소를 생성하여 더 멋지게 커스텀 해본 예제이다.  
