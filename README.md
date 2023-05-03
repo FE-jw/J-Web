@@ -16,6 +16,7 @@
 * [image lazyload](posts/2022/0520)
 
 ## **Example**
+* [SmartCursor로 마우스 커서 커스텀하기](posts/2023/0503)
 * [details + summary 태그로 부가 정보 접었다 펴기](posts/2023/0227)
 * [Priority Nav 플러그인 예제](posts/2023/0224)
 * [Swiper 다양한 예제](posts/2023/0210)
