@@ -45,7 +45,7 @@ const SmartCursor = {
 		const cursors = document.querySelectorAll('[data-cursor]');
 
 		if(cursors.length){
-			const tempCursors = [];	// 페이지 내 존재하는 cursor 조회
+			const tempCursors = [];	// 페이지 내 존재하는 cursor를 담을 배열
 
 			cursors.forEach(function(cursor, idx){
 				tempCursors.push(cursor.dataset.cursor);
@@ -80,5 +80,4 @@ const SmartCursor = {
 	}
 };
 SmartCursor.init();
-</script>
 ```
