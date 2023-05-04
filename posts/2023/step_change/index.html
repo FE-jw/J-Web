@@ -14,7 +14,7 @@
 		.section:nth-of-type(even)	{background-color:royalblue;}
 
 		.step-wrap	{height:600vh;background:linear-gradient(to bottom, rgba(247,247,49,1) 0%,rgba(169,173,93,1) 100%);}
-		.item-wrap	{display:flex;justify-content:center;align-items:center;height:calc(100vh - 60px);padding:20px;position:-webkit-sticky;position:sticky;left:0;top:60px;background-color:rgba(255, 255, 255, 0.5);box-sizing:border-box;}
+		.item-wrap	{display:flex;justify-content:center;align-items:center;height:100vh;padding:80px 20px 20px;position:-webkit-sticky;position:sticky;left:0;top:0;background-color:rgba(255, 255, 255, 0.5);box-sizing:border-box;}
 		.items	{width:100%;max-width:1400px;height:100%;position:relative;font-size:20px;font-weight:bold;color:#fff;background-color:#d33;}
 		.items .step	{opacity:0;display:flex;justify-content:center;align-items:center;width:100%;height:100%;position:absolute;left:0;top:0;transition:opacity 0.3s;}
 		.items .step:nth-child(odd)	{background-color:firebrick;}
@@ -62,15 +62,17 @@
 		stepChange: function(){
 			var winTop = window.scrollY;
 			var wrapH = document.querySelector('.step-wrap').clientHeight - (window.innerHeight * 0.5);
-			var wrapTop = winTop + document.querySelector('.step-wrap').getBoundingClientRect().top - (window.innerHeight * 0.3);
-			var standardVal = winTop - wrapTop;
-			var turningPoint = wrapH / ScrollAni.obj.length;
-			var beforeStep = Math.floor(standardVal / turningPoint) - 1;
-			var currentStep = Math.floor(standardVal / turningPoint);
-			var nextStep = Math.floor(standardVal / turningPoint) + 1;
+			var wrapTop = winTop + document.querySelector('.step-wrap').getBoundingClientRect().top;
+			var currentVal = winTop - wrapTop + (window.innerHeight * 0.3);
+			var changeVal = wrapH / ScrollAni.obj.length;
+			var currentStep = Math.floor(currentVal / changeVal);
+			var beforeStep = currentStep - 1;
+			var nextStep = currentStep + 1;
 
 			if(ScrollAni.obj[beforeStep]){
-				ScrollAni.obj[beforeStep].classList.remove('on');
+				if(beforeStep != ScrollAni.obj.length -1){
+					ScrollAni.obj[beforeStep].classList.remove('on');
+				}
 			}
 
 			if(ScrollAni.obj[currentStep]){
@@ -78,7 +80,9 @@
 			}
 
 			if(ScrollAni.obj[nextStep]){
-				ScrollAni.obj[nextStep].classList.remove('on');
+				if(nextStep != 0){
+					ScrollAni.obj[nextStep].classList.remove('on');
+				}
 			}
 		},
 		init: function(){
