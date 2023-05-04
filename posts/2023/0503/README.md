@@ -67,7 +67,6 @@ const SmartCursor = {
 			realCursors.forEach(function(ele, idx){
 				SmartCursor.cursor[ele] = document.createElement('div');
 				SmartCursor.cursor[ele].dataset.smartCursor = ele;
-
 				SmartCursor.cursor.parent.append(SmartCursor.cursor[ele]);
 			});
 		}
