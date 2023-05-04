@@ -1,6 +1,6 @@
 # **SmartCursor로 마우스 커서 커스텀하기**
 
-[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/2023/0503/index.html)
+[테스트 페이지 바로가기](https://fe-jw.github.io/J-Web/posts/2023/0503/smart_cursor.html)
 
 CSS의 cursor 속성을 이용하는 경우 구현의 한계가 있다.  
 요소를 생성하여 더 멋지게 커스텀 해본 예제이다.  
@@ -37,44 +37,48 @@ const SmartCursor = {
 		SmartCursor.cursor[cursorType].classList.toggle('on');
 	},
 	init: function(){
+		// 커서 요소 생성
+		SmartCursor.cursor.parent = document.createElement('div');
+		SmartCursor.cursor.parent.classList.add('smart_cursor');
+		document.body.append(SmartCursor.cursor.parent);
+
 		const cursors = document.querySelectorAll('[data-cursor]');
 
 		if(cursors.length){
-			// 커서 생성
-			SmartCursor.cursor.parent = document.createElement('div');
-			SmartCursor.cursor.parent.classList.add('smart_cursor');
+			const tempCursors = [];	// 페이지 내 존재하는 cursor 조회
 
-			// 커서 1: 클릭 가능
-			SmartCursor.cursor.clickable = document.createElement('div');
-			SmartCursor.cursor.clickable.dataset.smartCursor = 'clickable';
+			cursors.forEach(function(cursor, idx){
+				tempCursors.push(cursor.dataset.cursor);
 
-			// 커서 2: 링크 이동
-			SmartCursor.cursor.anchor = document.createElement('div');
-			SmartCursor.cursor.anchor.dataset.smartCursor = 'anchor';
-
-			// 커서 요소 삽입
-			SmartCursor.cursor.parent.append(
-				SmartCursor.cursor.clickable,
-				SmartCursor.cursor.anchor
-			);
-			document.body.append(SmartCursor.cursor.parent);
-
-			cursors.forEach(function(ele){
-				const cursorType = ele.dataset.cursor;
-
-				ele.addEventListener('mouseenter', function(){
-					SmartCursor.toggle(cursorType);
+				cursor.addEventListener('mouseenter', function(){
+					SmartCursor.toggle(cursor.dataset.cursor);
 				});
-				ele.addEventListener('mouseleave', function(){
-					SmartCursor.toggle(cursorType);
+				cursor.addEventListener('mouseleave', function(){
+					SmartCursor.toggle(cursor.dataset.cursor);
 				});
 			});
 
-			document.documentElement.addEventListener('mouseenter', SmartCursor.enter);
-			document.documentElement.addEventListener('mouseleave', SmartCursor.leave);
-			document.documentElement.addEventListener('mousemove', SmartCursor.move);
+			// 중복되는 배열 항목 제거
+			const realCursors = tempCursors.filter(function(item, idx){
+				return tempCursors.indexOf(item) === idx;
+			});
+
+			// 커서 요소 삽입
+			realCursors.forEach(function(ele, idx){
+				SmartCursor.cursor[ele] = document.createElement('div');
+				SmartCursor.cursor[ele].dataset.smartCursor = ele;
+
+				SmartCursor.cursor.parent.append(
+					SmartCursor.cursor[ele]
+				);
+			});
 		}
+
+		document.documentElement.addEventListener('mouseenter', SmartCursor.enter);
+		document.documentElement.addEventListener('mouseleave', SmartCursor.leave);
+		document.documentElement.addEventListener('mousemove', SmartCursor.move);
 	}
 };
 SmartCursor.init();
+</script>
 ```

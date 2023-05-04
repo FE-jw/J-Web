@@ -38,8 +38,8 @@
 		<div class="flex_item">
 			<h1 class="tit">section 1</h1>
 			<nav>
-				<a href="#none" data-cursor="clickable">링크 태그</a>
-				<a href="#none" data-cursor="anchor">링크 이동</a>
+				<a href="#none" data-cursor="clickable">clickable</a>
+				<a href="#none" data-cursor="anchor">anchor</a>
 			</nav>
 			<div>
 				<button type="button" data-cursor="clickable">button 태그</button>
@@ -71,43 +71,46 @@
 			SmartCursor.cursor[cursorType].classList.toggle('on');
 		},
 		init: function(){
+			// 커서 요소 생성
+			SmartCursor.cursor.parent = document.createElement('div');
+			SmartCursor.cursor.parent.classList.add('smart_cursor');
+			document.body.append(SmartCursor.cursor.parent);
+
 			const cursors = document.querySelectorAll('[data-cursor]');
 
 			if(cursors.length){
-				// 커서 생성
-				SmartCursor.cursor.parent = document.createElement('div');
-				SmartCursor.cursor.parent.classList.add('smart_cursor');
+				const tempCursors = [];	// 페이지 내 존재하는 cursor 조회
 
-				// 커서 1: 클릭 가능
-				SmartCursor.cursor.clickable = document.createElement('div');
-				SmartCursor.cursor.clickable.dataset.smartCursor = 'clickable';
+				cursors.forEach(function(cursor, idx){
+					tempCursors.push(cursor.dataset.cursor);
 
-				// 커서 2: 링크 이동
-				SmartCursor.cursor.anchor = document.createElement('div');
-				SmartCursor.cursor.anchor.dataset.smartCursor = 'anchor';
-
-				// 커서 요소 삽입
-				SmartCursor.cursor.parent.append(
-					SmartCursor.cursor.clickable,
-					SmartCursor.cursor.anchor
-				);
-				document.body.append(SmartCursor.cursor.parent);
-
-				cursors.forEach(function(ele){
-					const cursorType = ele.dataset.cursor;
-
-					ele.addEventListener('mouseenter', function(){
-						SmartCursor.toggle(cursorType);
+					cursor.addEventListener('mouseenter', function(){
+						SmartCursor.toggle(cursor.dataset.cursor);
 					});
-					ele.addEventListener('mouseleave', function(){
-						SmartCursor.toggle(cursorType);
+					cursor.addEventListener('mouseleave', function(){
+						SmartCursor.toggle(cursor.dataset.cursor);
 					});
 				});
 
-				document.documentElement.addEventListener('mouseenter', SmartCursor.enter);
-				document.documentElement.addEventListener('mouseleave', SmartCursor.leave);
-				document.documentElement.addEventListener('mousemove', SmartCursor.move);
+				// 중복되는 배열 항목 제거
+				const realCursors = tempCursors.filter(function(item, idx){
+					return tempCursors.indexOf(item) === idx;
+				});
+
+				// 커서 요소 삽입
+				realCursors.forEach(function(ele, idx){
+					SmartCursor.cursor[ele] = document.createElement('div');
+					SmartCursor.cursor[ele].dataset.smartCursor = ele;
+
+					SmartCursor.cursor.parent.append(
+						SmartCursor.cursor[ele]
+					);
+				});
 			}
+
+			document.documentElement.addEventListener('mouseenter', SmartCursor.enter);
+			document.documentElement.addEventListener('mouseleave', SmartCursor.leave);
+			document.documentElement.addEventListener('mousemove', SmartCursor.move);
 		}
 	};
 	SmartCursor.init();
