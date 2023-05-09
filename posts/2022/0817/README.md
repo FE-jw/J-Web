@@ -77,7 +77,7 @@ git checkout branch-name
 'commit-hash'의 상태로 저장소를 되돌린다.
 ```
 git checkout sbbb5493830104e4a193723af060ffcb5d6fe7a7
-git checkout main
+git checkout - (최신 버전)
 ```
 
 ## **git merge branch-name**
