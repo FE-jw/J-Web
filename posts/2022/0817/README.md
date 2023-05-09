@@ -67,6 +67,19 @@ git clone repository-url
 git switch branch-name
 ```
 
+## **git checkout branch-name**
+'branch-name'의 브랜치로 전환한다.
+```
+git checkout branch-name
+```
+
+## **git checkout commit-hash**
+'commit-hash'의 상태로 저장소를 되돌린다.
+```
+git checkout sbbb5493830104e4a193723af060ffcb5d6fe7a7
+git checkout main
+```
+
 ## **git merge branch-name**
 'branch-name'의 브랜치를 통합한다.  
 기준이 되는 브랜치에서 실행하며 보통 **main(master)** 브랜치에서 실행한다.  
