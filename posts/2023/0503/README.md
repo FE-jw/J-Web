@@ -16,8 +16,8 @@ JS로 체크해서 PC웹에서만 적용이 가능하다.
 .smart_cursor:before	{content:'';display:block;width:20px;height:20px;border-radius:50%;background-color:#d33;transform:translate(-50%, -50%);}	/* 디폴트 커서 */
 .smart_cursor [data-smart-cursor]	{opacity:0;visibility:hidden;width:100px;height:100px;position:absolute;left:-50px;top:-50px;background-repeat:no-repeat;background-size:100% 100%;transform:scale(0.2);transition:all 0.2s;}
 .smart_cursor [data-smart-cursor].on	{opacity:1;visibility:visible;transform:scale(1);}
-.smart_cursor [data-smart-cursor='clickable']	{background-image:url('cursor_1.png');}
-.smart_cursor [data-smart-cursor='anchor']	{background-image:url('cursor_2.png');}
+.smart_cursor [data-smart-cursor='anchor']	{background-image:url('cursor_1.png');}
+.smart_cursor [data-smart-cursor='drag']	{background-image:url('cursor_2.png');}
 ```
 
 ## JS
@@ -29,8 +29,12 @@ const SmartCursor = {
 	},
 	leave: function(){
 		SmartCursor.cursor.parent.classList.remove('enter');
+		SmartCursor.cursor.parent.removeAttribute('style');
 	},
 	move: function(mouse){
+		if(!SmartCursor.cursor.parent.classList.contains('enter')){
+			SmartCursor.enter();
+		}
 		SmartCursor.cursor.parent.style.transform = 'translate(' + mouse.clientX + 'px, ' + mouse.clientY + 'px)';
 	},
 	toggle: function(cursorType){
@@ -45,7 +49,7 @@ const SmartCursor = {
 		const cursors = document.querySelectorAll('[data-cursor]');
 
 		if(cursors.length){
-			const tempCursors = [];	// 페이지 내 존재하는 cursor를 담을 배열
+			const tempCursors = [];	// 페이지 내 존재하는 cursor를 담을 임시 배열
 
 			cursors.forEach(function(cursor, idx){
 				tempCursors.push(cursor.dataset.cursor);
@@ -58,7 +62,7 @@ const SmartCursor = {
 				});
 			});
 
-			// 중복되는 배열 항목 제거
+			// 임시 배열에서 중복되는 항목 제거
 			const realCursors = tempCursors.filter(function(item, idx){
 				return tempCursors.indexOf(item) === idx;
 			});
@@ -74,6 +78,41 @@ const SmartCursor = {
 		document.documentElement.addEventListener('mouseenter', SmartCursor.enter);
 		document.documentElement.addEventListener('mouseleave', SmartCursor.leave);
 		document.documentElement.addEventListener('mousemove', SmartCursor.move);
+
+		// iframe
+		const iframeObj = document.querySelectorAll('iframe');
+
+		if(iframeObj.length){
+			const frameEnter = function(){
+				document.querySelector('.smart_cursor').style.display = 'none';
+			};
+			const frameLeave = function(){
+				document.querySelector('.smart_cursor').style.display = '';
+			};
+
+			iframeObj.forEach(function(ele){
+				ele.addEventListener('mouseenter', frameEnter);
+				ele.addEventListener('mouseleave', frameLeave);
+				ele.addEventListener('mousemove', frameEnter);
+			});
+		}
+
+		// smart cursor를 적용하지 않는 요소 중 클릭 가능한 요소들
+		const clickable = document.querySelectorAll('a:not([data-cursor]), button:not([data-cursor]), label:not([data-cursor])');
+
+		if(clickable.length){
+			const clickableEnter = function(){
+				document.querySelector('.smart_cursor').classList.add('clickable');
+			};
+			const clickableLeave = function(){
+				document.querySelector('.smart_cursor').classList.remove('clickable');
+			};
+
+			clickable.forEach(function(ele){
+				ele.addEventListener('mouseenter', clickableEnter);
+				ele.addEventListener('mouseleave', clickableLeave);
+			});
+		}
 	}
 };
 SmartCursor.init();
