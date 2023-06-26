@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<title>css var()</title>
+	<style>
+		*	{margin:0;padding:0;}
+		html	{-webkit-text-size-adjust:none;}
+		body	{line-height:1.2;font-family:Arial, Helvetica, sans-serif;font-size:16px;color:#000;}
+		.wrap	{
+			--main-red: #d33;
+			--main-dark: #999;
+			--default-size: 50;
+			--dafault-margin: 10;
+		}
+		.flex	{display:flex;background-color:#555;}
+		.box	{width:calc(var(--default-size) * 1px);height:calc(var(--default-size) * 1px);margin:calc(var(--dafault-margin) * 1px);}
+		.red	{background-color:var(--main-red);}
+		.dark	{background-color:var(--main-dark);}
+		.desc	{margin:calc(var(--dafault-margin) * 1px);color:var(--main-dark);}
+
+		@media (min-width:768px)	{
+			.wrap	{
+				--main-red: #f00;
+				--main-dark: #777;
+				--default-size: 100;
+				--dafault-margin: 20;
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="flex">
+		<div class="red box"></div>
+		<div class="dark box"></div>
+		<!-- <div class="red box"></div> -->
+		<!-- <div class="dark box"></div> -->
+	</div>
+	<p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, suscipit?</p>
+	<button type="button" class="btn-color">JS로 --main-dark 변경하기</button>
+</div>
+<script>
+	// const myVal = window.getComputedStyle(document.querySelector('.wrap')).getPropertyValue('--main-dark');
+	// console.log(myVal);
+
+	document.querySelector('.btn-color').addEventListener('click', function(){
+		document.querySelector('.wrap').style.setProperty('--main-dark', '#000');
+	});
+</script>
+</body>
+</html>
