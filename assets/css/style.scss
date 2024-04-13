@@ -1,5 +1,5 @@
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
-/*! Custom Author: JW 2022-06-06. Edit: JW 2023-05-03 */
+/*! Custom Author: JW 2022-06-06. Edit: JW 2024-04-13 */
 @import 'https://cdn.jsdelivr.net/gh/fe-jw/fe-jw.github.io/css/font.min.css';
 $symbol-white: #d4d4d4;
 $symbol-dark: #141414;
@@ -1574,7 +1574,7 @@ to{width:0%;}
 .markdown-body table thead tr	{background-color:#000;}
 .markdown-body table tbody tr:nth-child(2n-1){background-color:#1c1c1c;}
 .markdown-body table img{background-color:transparent;}
-.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff;}
+.markdown-body img{max-width:100%;box-sizing:content-box;/* background-color:#fff; */}
 .markdown-body img[align=right]{padding-left:20px;}
 .markdown-body img[align=left]{padding-right:20px;}
 .markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent;}
