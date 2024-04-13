@@ -1,6 +1,7 @@
 # **J-Web**
 
 ## **Posting**
+* [Vue Provide/Inject](posts/2024/0413)
 * [CSS var()](posts/2023/0702)
 * [let과 const를 써야하는 이유](posts/2022/1216)
 * [타입스크립트(TS)](posts/2022/1202)
@@ -31,10 +32,10 @@
 * [앞면 동일한 카드 맞추기](posts/2022/1005)
 * [drag and drop으로 파일 올리기](posts/2022/0925)
 
-## **Plugin**
-* [STA](posts/2022/0527)
-* [SmartPop](posts/2022/1109)
-* [SmartTab](posts/2022/1128)
+<!-- ## **Plugin** -->
+<!-- * [STA](posts/2022/0527)/ -->
+<!-- * [SmartPop](posts/2022/1109) -->
+<!-- * [SmartTab](posts/2022/1128) -->
 
 ## **유용한 웹 툴**
 * [스프라이트 이미지 제너레이터](https://www.toptal.com/developers/css/sprite-generator)
@@ -47,9 +48,9 @@
 * [CSS clip-path maker](https://bennettfeely.com/clippy/)
 * [올인원 툴](https://10015.io/)
 
-## **Etc**
-* [ReactJS](https://github.com/FE-jw/react#readme)
-* [NextJS](https://github.com/FE-jw/nextjs#readme)
+<!-- ## **Etc** -->
+<!-- * [ReactJS](https://github.com/FE-jw/react#readme) -->
+<!-- * [NextJS](https://github.com/FE-jw/nextjs#readme) -->
 
 ## **Contact Me**
 * Email: [zaixu91@gmail.com](mailto:zaixu91@gmail.com)
