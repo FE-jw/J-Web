@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<title>WebP Test</title>
+	<style>
+		*	{margin:0;padding:0;}
+		picture	{display:block;}
+	</style>
+</head>
+<body>
+<picture>
+	<source srcset="img_2.webp" type="image/webp">
+	<img src="img_3.jpg" alt="test">
+</picture>
+<script>
+const WebpSupport = () => {
+	const img = new Image();
+	img.src = 'data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACyAgCdASoCAAEALmk0mk0iIiIiIgBoSygABc6zbAAA/v56QAAAAA==';
+	img.onload = () => {
+		document.documentElement.classList.add('webp_support');
+	};
+	img.onerror = () => {
+		console.log('WebP 지원되지 않음');
+	};
+};
+
+WebpSupport();
+</script>
+</body>
+</html>
