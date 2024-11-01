@@ -106,3 +106,16 @@ git push origin -d branch-name
 ```
 git pull origin branch-name
 ```
+
+## **git revert hash**
+특정 hash 커밋으로 되돌아간다.
+```
+git revert a391c65997198131f985d04ecb206d433f0cb914
+```
+
+## **git checkout branch-name -p**
+특정 브랜치의 특정 파일만 merge한다.
+```
+git checkout develop -p test.js
+git checkout develop -p style/reset.css
+```
