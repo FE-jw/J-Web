@@ -119,3 +119,9 @@ git revert a391c65997198131f985d04ecb206d433f0cb914
 git checkout develop -p test.js
 git checkout develop -p style/reset.css
 ```
+
+## **git checkout -p branch-name --path **
+특정 브랜치의 특정 폴더만 merge한다.
+```
+git checkout -p develop --path test/
+```
