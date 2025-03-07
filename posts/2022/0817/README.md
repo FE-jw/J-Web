@@ -135,3 +135,9 @@ git checkout -p develop --path test/
 ```
 git cherry-pick 0504624529cdd5bafb571068ca1c748c1c551ece
 ```
+
+## **git mv [before file name] [after file name]**
+파일명을 변경한다.
+```
+git mv test.js TEST.js
+```
