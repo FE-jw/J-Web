@@ -137,7 +137,9 @@ git cherry-pick 0504624529cdd5bafb571068ca1c748c1c551ece
 ```
 
 ## **git mv [before file name] [after file name]**
-파일명을 변경한다.
+파일명을 변경한다.  
+수동으로 파일명을 변경하는 경우 기존 파일을 삭제로 인식하기 때문에 히스토리를 추적할 수 없다.  
+mv 명령어를 사용하면 계속 추적할 수 있다.
 ```
 git mv test.js TEST.js
 ```
