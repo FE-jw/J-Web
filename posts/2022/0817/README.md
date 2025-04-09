@@ -143,3 +143,20 @@ mv 명령어를 사용하면 계속 추적할 수 있다.
 ```
 git mv test.js TEST.js
 ```
+
+## **git stash**
+현재 변경 사항 파일들을 임시 저장한다.
+```
+<!-- 추적 중인 파일들만 임시 저장 -->
+git stash
+
+<!-- untracked 파일들까지 임시 저장 -->
+git stash push -u
+
+<!-- 특정 파일만 임시 저장 -->
+git stash push -m "특정 파일만 stash" <파일-1> <파일-2>
+
+<!-- 특정 파일만 임시 저장(untracked 파일 있는 경우) -->
+git stash push -u -m "특정 파일만 stash" <파일-1> <파일-2>
+
+```
