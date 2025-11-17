@@ -124,10 +124,10 @@ git checkout develop -p test.js
 git checkout develop -p style/reset.css
 ```
 
-## **git checkout -p [branch name] --path**
+## **git checkout [branch name] --**
 특정 브랜치의 특정 폴더만 merge한다.
 ```
-git checkout -p develop --path test/
+git checkout develop -- test/
 ```
 
 ## **git cherry-pick [commit hash]**
